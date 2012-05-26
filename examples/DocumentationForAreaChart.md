@@ -17,27 +17,27 @@ A questo punto abbiamo quasi finito, manca l’ultimo passo ovvero la lettura di q
 ### Come gestire gli Attributi degli Oggetti del Panel  
 E’ possibile settare altri attributi, che potrebbero non essere stati previsti da Rubyvis, agli oggetti utilizzati in questa libreria. Per esempio se volessimo settare un attributo “qwerty”(è solo un esempio, l’attributo deve essere previsto dall’SVG) per un oggetto di tipo dot, è sufficiente aggiungere in rubyvis\lib\scene\svg_dot.rb nella struttura dati  
     svg = {  
-    "class" => s.classdot,     
-    "shape-rendering"=> s.shape_rendering,  
-    "pointer-events"=> s.events,  
-    "cursor"=> s.cursor,  
-    "fill"=> s.fill,  
-    "fill-opacity"=> s.fill_opacity,  
-    "stroke"=> s.stroke,  
-    "stroke-opacity"=> s.stroke_opacity,  
-    "stroke-width"=> s.stroke_width  
+        "class" => s.classdot,     
+        "shape-rendering"=> s.shape_rendering,  
+        "pointer-events"=> s.events,  
+        "cursor"=> s.cursor,  
+        "fill"=> s.fill,  
+        "fill-opacity"=> s.fill_opacity,  
+        "stroke"=> s.stroke,  
+        "stroke-opacity"=> s.stroke_opacity,  
+        "stroke-width"=> s.stroke_width  
     }  
-la stringa <<“qwerty”=> s.qwerty>> per esempio nell’ultima riga(se non fosse l’ultima riga è necessario aggiungere la virgola alla fine della stringa), poi aggiungere in rubyvis\lib\mark\dot.rb nella lista degli <<attr_accessor_dsl>> l’attributo :qwerty e farlo anche nel file rubyvis\lib\sceneelement.rb nella lista degli attributi <<attr_accessor>>. Ora è sufficiente scrivere in costruzione dell’oggetto dot l’attributo qwerty “VALORE” ad esempio  
+la stringa `“qwerty”=> s.qwerty` per esempio nell’ultima riga(se non fosse l’ultima riga è necessario aggiungere la virgola alla fine della stringa), poi aggiungere in `rubyvis\lib\mark\dot.rb` nella lista degli `attr_accessor_dsl` l’attributo `:qwerty` e farlo anche nel file `rubyvis\lib\sceneelement.rb` nella lista degli attributi `attr_accessor`. Ora è sufficiente scrivere in costruzione dell’oggetto dot l’attributo qwerty “VALORE” ad esempio  
     dot do  
-    data data  
-    shape_radius(3.5)  
-    cx {|d| x.scale(d.x)}  
-    cy {|d| y.scale(d.y)  
-    fill "#fff"  
-    stroke "steelblue"  
-    classdot("area")  
-    qwerty “VALORE”  
-    stroke_width "1.5px"  
+        data data  
+        shape_radius(3.5)  
+        cx {|d| x.scale(d.x)}  
+        cy {|d| y.scale(d.y)  
+        fill "#fff"  
+        stroke "steelblue"  
+        classdot("area")  
+        qwerty “VALORE”  
+        stroke_width "1.5px"  
     end  
 ed il gioco è fatto!  
 Ovviamente sarebbe meglio prima di creare l'attributo per l'oggetto object controllare nel rispettivo file svg_object.rb se nella sezione citata prima se fosse già possibile utilizzare tale attributo ma che è settato sotto altro nome come abbiamo visto per l'attributo shape_radius dell'oggetto dot.
