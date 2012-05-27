@@ -5,15 +5,25 @@ module Rubyvis
         next unless s.visible
         fill=s.text_style
         next if(fill.opacity==0 or s.text.nil?)
-        unless s.angle.nil?
-          r = (s.inner_radius + s.outer_radius) / 2
-          s.start_angle = i>0 ? scenes[i-1].end_angle : -Math::PI.quo(2)
-          s.end_angle = s.start_angle + s.angle
-          a = ((s.start_angle + s.end_angle) / 2) - Math::PI.quo(2)
-          ca = Math.cos(a) * r
-          sa = Math.sin(a) * r
-          s.centroid = "#{ca}, #{sa}"
-          s.transform = s.transform == "centroid" ? "translate(" + "#{s.centroid}" + ")" : s.transform
+
+        if s.transform == "centroid"
+          tem = nil
+          k=0
+          while tem.nil?
+            scenes.parent[k].children.each_with_index do |child, j|
+              if child == scenes
+                t=0
+                while t<j && tem.nil?
+                  if scenes.parent[k].children[t].type == "wedge"
+                    tem = scenes.parent[k].children[t][0].centroid
+                  end
+                  t = t+1
+                end
+              end
+            end
+            k=k+1
+          end
+          s.transform = "translate(" + tem + ")"
         end
 
         e=SvgScene.expect(e,'text', {

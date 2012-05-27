@@ -139,10 +139,10 @@ module Rubyvis
         s.end_angle = s.start_angle + s.angle
       end
       r = (s.inner_radius + s.outer_radius) / 2
-      a = (s.start_angle + s.end_angle) / 2 - Math::PI.quo(2)
+      a = ((s.start_angle + s.end_angle) / 2) - Math::PI.quo(2)
       ca = Math.cos(a) * r
-      sa = Math.sin(a) * r
-      s.centroid = "#{ca}, #{sa}"
+      sa = Math.sin(a) * -r
+      s.centroid = "#{sa}, #{ca}"
       mark_build_implied(s)
     end
 

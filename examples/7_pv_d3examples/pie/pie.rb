@@ -26,18 +26,18 @@ vis = pv.Panel.new() do
       outerRadius outerRadius
       angle a
       fill color
-
-      label do
-        dy '.35em'
-        #TODO .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
-        transform "centroid"
-        text_anchor 'middle'
-        #display {|d| d > 0.15 ? nil : "none"}
-        #TODO .attr("display", function(d) { return d.value > .15 ? null : "none"; })
-        visible(lambda {|d|  d > 0.15})
-        text(lambda {|d| "%0.2f" %  d})
-      end
     end
+
+    label do
+      dy '.35em'
+      # per semplificare per avere la label in centro al wedge(centroid mode)) è necessario metterla dopo il wedge e deve essere specificato nel translate come nell'esempio
+      transform "centroid"
+      text_anchor 'middle'
+      #display {|d| d > 0.15 ? nil : "none"} #non è possibile usare display perché da errore...
+      visible(lambda {|d|  d > 0.15})
+      text(lambda {|d| "%0.2f" %  d})
+    end
+
   end
 end
 
