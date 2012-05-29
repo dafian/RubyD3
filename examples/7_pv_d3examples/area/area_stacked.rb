@@ -11,8 +11,8 @@ data = pv.range(4).map {|i|
 
 w = 400
 h = 200
-b = 20
 l = 20
+b = 20
 r = 10
 t = 5
 
@@ -23,7 +23,12 @@ y = pv.Scale.linear(0, 14).range(h, 0)
 vis = pv.Panel.new() do
 
   width w + r + l
-  height h +
+  height h + b + t
+  fill "none"
+  font_family "sans-serif"
+  font_size "10px"
+  stroke "none"
+  stroke_width "1.5"
 
   group do
     transform "translate(" + l.to_s + "," + t.to_s + ")"
@@ -45,6 +50,7 @@ vis = pv.Panel.new() do
     transform "translate(" + l.to_s + "," + t.to_s + ")"
 
     label do
+      data(x.ticks())
       dy ".71em"
       fill "rgb(0,0,0)"
       text_anchor "middle"
@@ -74,12 +80,13 @@ vis = pv.Panel.new() do
     transform "translate(" + l.to_s + "," + t.to_s + ")"
 
     label do
-      text(y.tick_format)
+      data(y.ticks(3))
       dy ".35em"
       fill "rgb(0,0,0)"
       text_anchor "end"
-      x -3
+      x 3 * -1
       y y
+      text(y.tick_format)
     end
   end
 
@@ -87,11 +94,12 @@ vis = pv.Panel.new() do
     transform "translate(" + l.to_s + "," + t.to_s + ")"
 
     #/* The stack layout. */
-    vis.add(pv.Layout.Stack)
-    layers(data)
-    x(lambda {|d| x.scale(d.x)})
-    y(lambda {|d| y.scale(d.y)})
-    layer.add(pv.Area)
+    pv.Layout.Stack do
+      layers(data)
+      x(lambda {|d| x.scale(d.x)})
+      y(lambda {|d| y.scale(d.y)})
+      layer.add(pv.Area)
+    end
   end
 
 end
@@ -99,6 +107,6 @@ end
 
 
 vis.render()
-f = File.new('C:\Users\Andrea\Desktop\stacked_charts.svg', "w")
+f = File.new('C:\Users\Andrea\Desktop\SVGhw\stacked_charts.svg', "w")
 f.puts vis.to_svg
 f.close
