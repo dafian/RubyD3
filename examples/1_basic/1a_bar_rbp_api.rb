@@ -4,16 +4,17 @@
 # A mark represents a set of graphical elements that share data and visual encodings. Although marks are simple by themselves, you can combine them in interesting ways to make rich, interactive visualizations
 $:.unshift(File.dirname(__FILE__)+"/../../lib")
 require 'rubyvis'
+data = [1, 1.2, 1.7, 1.5, 0.7, 0.3]
     
-vis = Rubyvis::Panel.new do 
+vis = pv.Panel.new() do
   width 150
   height 150
   bar do
-    data [1, 1.2, 1.7, 1.5, 0.7, 0.3]
+    data data
     width 20
     height {|d| d * 80}
-    bottom(0)
-    left {index * 25}
+    x {index * 25}
+    y {|d| 150 - d * 80}
   end
 end
 

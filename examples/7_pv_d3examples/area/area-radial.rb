@@ -4,8 +4,6 @@ require 'rubyvis'
 r = 960 / 2
 
 data = Rubyvis.range(0, 361, 1).map {|i| 0.8 + Math.sin(i * Math::PI / 20 ) / 6}
-i=-1
-q=-1
 
 vis = pv.Panel.new() do
 
@@ -20,7 +18,7 @@ vis = pv.Panel.new() do
       classarea "area"
       inner_radius r/2
       outer_radius{|d| d * r}
-      angle {i=i+1; i * Math::PI / 180 }
+      angle {index * Math::PI / 180 }
       fill "lightsteelblue"
       fill_rule "evenodd"
 
@@ -30,7 +28,7 @@ vis = pv.Panel.new() do
       data data
       classline "line"
       radius {|d| d * r}
-      angle {q = q+1; q*Math::PI/180}
+      angle { index * Math::PI/180}
       stroke "steelblue"
       fill "none"
       stroke_width "1.5px"

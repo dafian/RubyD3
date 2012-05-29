@@ -55,7 +55,7 @@ module Rubyvis
     # The bar fill style; if non-nil, the interior of the bar is filled with the
     # specified color. The default value of this property is a categorical color.
     
-    attr_accessor_dsl :width, :height, :line_width, [:stroke_style, lambda {|d| Rubyvis.color(d)}], [:fill_style, lambda {|d| Rubyvis.color(d)}]
+    attr_accessor_dsl :width, :height, :line_width, [:stroke_style, lambda {|d| Rubyvis.color(d)}], [:fill_style, lambda {|d| Rubyvis.color(d)}], :x, :y, :stroke, :fill, :fill_opacity, :stroke_opacity, :shape_rendering, :stroke_width
     
     # Default properties for bars. By default, there is no stroke and the fill
     # style is a categorical color.
@@ -65,10 +65,13 @@ module Rubyvis
           a.scale(self.parent.index)
       })
     end
+
+    def children
+      @children
+    end
+
   end
 
-  def children
-    @children
-  end
+
 
 end

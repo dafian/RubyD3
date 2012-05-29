@@ -1,33 +1,27 @@
 module Rubyvis
   module SvgScene
     def self.bar(scenes, tra)
-      #e=scenes._g.elements[1]
-      #e=scenes._g.get_element(1)
       scenes.each_with_index do |s,i|
         next unless s.visible
-        fill=s.fill_style
-        stroke=s.stroke_style
-        next if(fill.opacity==0 and stroke.opacity==0)
+        next if(s.fill_opacity==0 and s.stroke_opacity==0)
         e=SvgScene.expect(e, 'rect', {
-          "shape-rendering"=> s.antialias ? nil : "crispEdges",
+          "shape-rendering"=> s.shape_rendering,
           "pointer-events"=> s.events,
           "cursor"=> s.cursor,
-          "x"=> s.left,
-          "y"=> s.top,
-          "width"=> [1E-10, s.width].max,
-          "height"=> [1E-10, s.height].max,
-          "fill"=> fill.color,
-          "fill-opacity"=> (fill.opacity==0) ? nil : fill.opacity,
-          "stroke"=> stroke.color,
-          "stroke-opacity"=> (stroke.opacity==0) ? nil : stroke.opacity,
-          "stroke-width"=> stroke.opacity ? s.line_width / SvgScene.scale.to_f : nil
+          "x"=> s.x,
+          "y"=> s.y,
+          "width"=> s.width,
+          "height"=> s.height,
+          "fill"=> s.fill,
+          "fill-opacity"=> s.fill_opacity,
+          "stroke"=> s.stroke,
+          "stroke-opacity"=> s.stroke_opacity,
+          "stroke-width"=> s.stroke_width
         })
 
-        #e=SvgScene.append(e,scenes,i)
-		tra.add_element(e)
+		  tra.add_element(e)
 
       end
-      #e
 	  tra
     end
   end
