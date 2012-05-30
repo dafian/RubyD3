@@ -9,10 +9,9 @@ File.open("C:/Users/Andrea/Desktop/Formation/TriennaleInformatica/Stage/Valeria/
   }
 
 end
-#=end
-=begin
-data = Rubyvis.range(0, 1, 0.05).map {|x|
-  OpenStruct.new({:x=> x*20/19, :y=> (Math.sin((x*20 / 3)) + 1) / 2})
+
+x_lin_min = data.each{|el|
+  puts el
+  puts el.inspect
+  puts el.x
 }
-=end
-Areachart.areacharter(data)  #you can insert the destination path as 2nd argument for the SVG file

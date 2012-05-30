@@ -1,14 +1,31 @@
 $:.unshift(File.dirname(__FILE__)+"/../../../lib")
 require 'rubyvis'
 class Areachart
-  def Areachart.areacharter(data, path = areachart.svg)
+  def Areachart.areacharter(data, path = "C:/Users/Andrea/Desktop/area_charter.svg")
 
-    w = 450
-    h = 275
-    p = 20
+    w = 1300
+    h = 600
+    p = 25
+    x_lin_min = data[0].x
+    x_lin_max = data[data.length-1].x
+    ret=nil
+    data.each{|op|
+       if ret.nil? || ret > op.y
+         ret = op.y
+       end
+    }
+    y_lin_min = ret
+    ret=nil
+    data.each{|op|
+      if ret.nil? || ret < op.y
+        ret = op.y
+      end
+    }
+    #y_lin_max = ret
+    y_lin_max = 1150
 
-    x = Rubyvis.Scale.linear(0,1).range(0, w)
-    y = Rubyvis.Scale.linear(0,1).range(h, 0)
+    x = Rubyvis.Scale.linear(x_lin_min,x_lin_max).range(0, w)
+    y = Rubyvis.Scale.linear(y_lin_min,y_lin_max).range(h, 0)
 
 
     vis = pv.Panel.new() do
@@ -22,11 +39,12 @@ class Areachart
 
 
         group do
-          data x.ticks(10)
+
           classg('rule')
 
           # X-axis
           rule do
+            data x.ticks(25)
             stroke "#eee"
             shape_rendering "crispEdges"
             x1 x
@@ -37,6 +55,7 @@ class Areachart
 
           # Y-axis
           rule do
+            data y .ticks(80)
             stroke {|d| d==0 ? "#000" : "#eee"}
             classrule{|d| d==0 ? "axis" : nil}
             shape_rendering "crispEdges"
@@ -48,6 +67,7 @@ class Areachart
 
           # X-ticks
           label do
+            data x.ticks(25)
             x x
             y h + 3
             dy ".71em"
@@ -57,6 +77,7 @@ class Areachart
 
           # Y-ticks
           label do
+            data y.ticks(40)
             y y
             x 3 * -1
             dy ".35em"
@@ -86,7 +107,7 @@ class Areachart
           y {|d| y.scale(d.y)}
           classline("line")
         end
-
+=begin
         # The dots on the tops line
         dot do
           data data
@@ -98,6 +119,7 @@ class Areachart
           classdot("area")
           stroke_width "1.5px"
         end
+=end
       end
     end
 
