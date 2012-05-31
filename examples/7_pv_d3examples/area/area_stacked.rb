@@ -92,7 +92,7 @@ vis = pv.Panel.new() do
 
   group do
     transform "translate(" + l.to_s + "," + t.to_s + ")"
-
+=begin
     #/* The stack layout. */
     add (pv.Layout.Stack) do
       layers(data)
@@ -100,9 +100,16 @@ vis = pv.Panel.new() do
       y(lambda {|d| y.scale(d.y)})
       layer.add(pv.Area)
     end
+=end
   end
 
 end
+
+vis.add(pv.Layout.Stack)
+.layers(data)
+.x(lambda {|d| x.scale(d.x)})
+.y(lambda {|d| y.scale(d.y)})
+.layer.add(pv.Area)
 
 
 

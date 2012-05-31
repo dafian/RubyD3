@@ -1,8 +1,10 @@
 $:.unshift(File.dirname(__FILE__)+"/../../../lib")
 require 'rubyvis'
+require 'benchmark'
+
 class Areachart
   def Areachart.areacharter(data, path = "C:/Users/Andrea/Desktop/area_charter.svg")
-
+    Benchmark.bm do |rep|
     w = 1300
     h = 600
     p = 25
@@ -86,7 +88,7 @@ class Areachart
           end
 
         end
-
+        rep.report("areavis") do
         # The area
         area do
           data data
@@ -96,7 +98,9 @@ class Areachart
           classarea("area")
           fill "lightsteelblue"
         end
+        end
 
+        rep.report("linevis") do
         #The tops line
         line do
           data data
@@ -107,11 +111,12 @@ class Areachart
           y {|d| y.scale(d.y)}
           classline("line")
         end
+        end
 =begin
         # The dots on the tops line
         dot do
           data data
-          shape_radius(3.5)
+          shape_radius(2)
           cx {|d| x.scale(d.x)}
           cy {|d| y.scale(d.y)}
           fill "#fff"
@@ -122,10 +127,14 @@ class Areachart
 =end
       end
     end
-
+    rep.report("rendering") do
     vis.render()
+    end
+    rep.report("to_svg") do
     f = File.new("#{path}", "w")
     f.puts vis.to_svg
     f.close
+    end
+    end
   end
 end
