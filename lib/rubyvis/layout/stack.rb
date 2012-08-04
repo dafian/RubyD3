@@ -287,7 +287,7 @@ module Rubyvis
         value = Rubyvis::Mark.new().data(lambda {  that.values[self.parent.index] }).top(proxy("t")).left(proxy("l")).right(proxy("r")).
           bottom(proxy("b")).
         width(proxy("w")).
-        height(proxy("h"))
+        height(proxy("h")).x(nil).y(nil)
         
         class << value # :nodoc:
           def that=(v)

@@ -97,13 +97,13 @@ module Rubyvis
         "stroke-linejoin"=> "miter"
       },:css=>{"font"=>"10px sans-serif"}
     }
-    def self.update_all(scenes, tra=nil, i=nil)
+    def self.update_all(scenes, gvs=nil, i=nil)
       puts "update_all: #{scenes.inspect}" if $DEBUG
       if (scenes.size>0 and scenes[0].reverse and scenes.type!='line' and scenes.type!='area' and scenes.type!='group')
         scenes=scenes.reverse
       end
       return self.remove_siblings(self.send(scenes.type, scenes)) if scenes.type=="panel"    # IO aggiunto la condizione per le chiamate diverse dai child
-      return self.send(scenes.type, scenes, tra)
+      return self.send(scenes.type, scenes, gvs)
     end
     def self.remove_siblings(e)
       while(e)

@@ -2,6 +2,9 @@ $:.unshift(File.dirname(__FILE__)+"/../../../lib")
 require 'rubyvis'
 require 'benchmark'
 
+# BIO::Image::NGS::Profile
+# BIO::Image::Profile::NGS    in quanto in profile è possibile visualizzare anche dati provenienti da altri tipi di tecnologie e.g. microarrays
+
 class Areachart
   def Areachart.areacharter(data, path = "C:/Users/Andrea/Desktop/area_charter.svg")
     Benchmark.bm do |rep|

@@ -1,6 +1,6 @@
 module Rubyvis
   module SvgScene
-    def self.group(scenes, tra)
+    def self.group(scenes, gvs)
 
       scenes.each_with_index{|s, ii|
         e=SvgScene.expect(e, "g", {
@@ -12,10 +12,10 @@ module Rubyvis
             e = SvgScene.update_all(chi, e)
           }
         end
-        tra.add_element(e) unless e.nil?
+        gvs.add_element(e) unless e.nil?
       }
 
-      tra
+      gvs
     end
 
   end

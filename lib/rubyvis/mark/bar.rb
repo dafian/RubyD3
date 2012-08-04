@@ -71,7 +71,4 @@ module Rubyvis
     end
 
   end
-
-
-
 end

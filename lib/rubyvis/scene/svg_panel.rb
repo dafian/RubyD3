@@ -1,6 +1,6 @@
 module Rubyvis
   module SvgScene
-    def self.panel(scenes, tra=nil)
+    def self.panel(scenes, gvs=nil)
       puts " -> panel: #{scenes.inspect}" if $DEBUG
       g=scenes._g
       #e=(g.nil?) ? nil : g.elements[1]
@@ -21,7 +21,6 @@ module Rubyvis
           end
 		      if(!g)
             g=s.canvas.add_element(self.create('svg'))
-            #TODO IO variables for each of those attributes
             #g.set_attributes(
             #  {
             #    'font-size'=>"10px", #not in d3
@@ -81,12 +80,12 @@ module Rubyvis
         end
         # fill
         #e=self.fill(e,scenes, i)
-        tra=g
+        gvs=g
         k=self.scale
         t=s.transform
         SvgScene.scale=SvgScene.scale*t.k
-        #tra=SvgScene.expect(e, "g", { "transform"=> "translate(" + x.to_s + "," + y.to_s + ")" + (t.k != 1 ? " scale(" + t.k.to_s + ")" : "")})
-        tra = self.fill(scenes, i, tra) if(s.fill_style.opacity>0 or s.events=='all') # IO ho modificato
+        #gvs=SvgScene.expect(e, "g", { "transform"=> "translate(" + x.to_s + "," + y.to_s + ")" + (t.k != 1 ? " scale(" + t.k.to_s + ")" : "")})
+        gvs = self.fill(scenes, i, gvs) if(s.fill_style.opacity>0 or s.events=='all') # IO ho modificato
         # transform
         # children
 =begin   # DDD come era un tempo
@@ -99,58 +98,20 @@ module Rubyvis
           e=e.next_sibling_node
         }
 =end
-=begin  #IO adesso con il mono transform
-        tra=SvgScene.expect(e, "g", { "transform"=> "translate(" + x.to_s + "," + y.to_s + ")" + (t.k != 1 ? " scale(" + t.k.to_s + ")" : "")})
-        s.children.each_with_index {|child, i2|
-            tra = SvgScene.update_all(child, tra)# DDD riempie i vari tag
-        }
-        g.add_element(tra)
-=end
-=begin  # IO adesso per raggruppare in rule(rule => line and label => text)
-# IO il tra l'ho messo su perché già sopra fa una chiamata che usa il transform
-        rulez = 0
-        type1 = nil
-        type2 = nil
-        s.children.each_with_index{|chi, ii|
-          if chi.type != "rule" && chi.type != "label"
-            tra = SvgScene.update_all(chi, tra)# DDD riempie i vari tag
-          elsif rulez == 0
-            type1 = chi.type
-            type1 == "rule" ? type2 = "label" : type2 = "rule"
-            rulez = chi.size
-            rulez.times{|ti|
-              rul=SvgScene.expect(e, "g", { "class"=> chi[0].classg ? chi[0].classg : nil})
-              s.children.each_with_index {|child, i2|
-                if child.type==type1
-                  rul=SvgScene.update_all(child, rul, ti)
-                end
-              }
-              s.children.each_with_index {|child, i2|
-                if child.type==type2
-                  rul=SvgScene.update_all(child, rul, ti)
-                end
-              }
-              tra.add_element(rul) if rul
-            }
-          end
-        }
-        puts tra
-#g.add_element(tra)
-        g=tra
-=end
+
 #=begin  # IO adesso per supportare le group
 
         s.children.each_with_index{|chi, ii|
-          tra = SvgScene.update_all(chi, tra)
+          gvs = SvgScene.update_all(chi, gvs)
         }
-        #g.add_element(tra)
-        g=tra
+        #g.add_element(gvs)
+        g=gvs
 #=end
         # transform (pop)
         SvgScene.scale=k
         # stroke
         #e=SvgScene.stroke(e,scenes,i)
-        tra = self.stroke(scenes, i, tra) if (s.stroke_style.opacity>0 or s.events == "all") # IO ho modificato
+        gvs = self.stroke(scenes, i, gvs) if (s.stroke_style.opacity>0 or s.events == "all") # IO ho modificato
         # clip
         if (s.overflow=='hidden')
           scenes._g=g=c.parent
@@ -164,15 +125,15 @@ module Rubyvis
 
 
     #def self.fill(e,scenes,i)
-    def self.fill(scenes, i, tra)
+    def self.fill(scenes, i, gvs)
       s=scenes[i]
       fill=s.fill_style
       e=SvgScene.expect(e,'rect', {
         "shape-rendering"=> s.antialias ? nil : "crispEdges",
         "pointer-events"=> s.events,
         "cursor"=> s.cursor,
-        "x"=> s.left,
-        "y"=> s.top,
+        "x"=> s.x,
+        "y"=> s.y,
         "height"=> s.height,
         "width"=> s.width,
         "fill"=> fill.color,
@@ -180,14 +141,14 @@ module Rubyvis
         "stroke"=> nil
       })
       #e=SvgScene.append(e,scenes, i)
-      tra.add_element(e)
+      gvs.add_element(e)
       #e
-      tra
+      gvs
     end
 
 
     #def self.stroke(e, scenes, i)
-    def self.stroke(scenes, i, tra=nil)
+    def self.stroke(scenes, i, gvs=nil)
       s = scenes[i]
       stroke = s.stroke_style
       #if (stroke.opacity>0 or s.events == "all")
@@ -195,8 +156,8 @@ module Rubyvis
           "shape-rendering"=> s.antialias ? nil : "crispEdges",
           "pointer-events"=> s.events == "all" ? "stroke" : s.events,
           "cursor"=> s.cursor,
-          "x"=> s.left,
-          "y"=> s.top,
+          "x"=> s.x,
+          "y"=> s.y,
           "width"=> [1E-10, s.width].max,
           "height"=>[1E-10, s.height].max,
           "fill"=>"none",
@@ -205,10 +166,10 @@ module Rubyvis
           "stroke-width"=> s.line_width / self.scale.to_f
         });
         #e = self.append(e, scenes, i);
-      tra.add_element(e)
+      gvs.add_element(e)
       #end
       #return e
-      tra
+      gvs
     end
   end
 end

@@ -1,6 +1,6 @@
 module Rubyvis
   module SvgScene
-    def self.label(scenes, tra)
+    def self.label(scenes, gvs)
       scenes.each_with_index do |s,i|
         next unless s.visible
         fill=s.text_style
@@ -41,9 +41,9 @@ module Rubyvis
         }, {
         "font"=> s.font, "text-shadow"=> s.text_shadow, "text-decoration"=> s.text_decoration})
         e.text=s.text.frozen? ? s.text.dup : s.text
-        tra.add_element(e)
+        gvs.add_element(e)
       end
-      tra
+      gvs
     end
   end
 end

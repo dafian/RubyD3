@@ -557,7 +557,7 @@ module Rubyvis
     # nil if this is the first instance.
     #
     # @return a node in the scene graph, or nil.
-    def sibling
+    def sibling                               # IO l'ho modificata quasi tutta'
       if self.parent.type=='group' && !self.parent.scene[0].data.nil? #!(self.parent._data.value.is_a Proc)
         if self.parent._data.value.size > 1
           i=0
@@ -625,7 +625,7 @@ module Rubyvis
     end
     # Implementation of mark anchor
     def mark_anchor(name="center") # :nodoc:
-      anchor=Rubyvis::Anchor.     # QUI DEVE ENTRARE
+      anchor=Rubyvis::Anchor.
         new(self).
         name(name).
         data(lambda {
@@ -780,7 +780,6 @@ module Rubyvis
     # of the panel will be rendered; otherwise, all visible instances of the mark
     # will be rendered.
     def render
-	
       parent=self.parent
       @stack=Mark.stack
       if parent and !self.root.scene
@@ -797,7 +796,6 @@ module Rubyvis
         parent=parent.parent
       end
       self.context( parent ? parent.scene : nil,
-	  
         parent ? parent.index : -1,
         lambda { render_render(root, 0,1) }
         )

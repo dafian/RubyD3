@@ -1,6 +1,6 @@
 module Rubyvis
   module SvgScene
-    def self.dot(scenes, tra)
+    def self.dot(scenes, gvs)
       #e = scenes._g.elements[1]
       #e=scenes._g.get_element(1) # IO non lo uso
       scenes.each_with_index {|s,i|
@@ -48,7 +48,7 @@ module Rubyvis
         }
 
         if (path)
-            svg["transform"] = "translate(#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s.left.to_s ) ? s.left : s.left.to_int},#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s.top.to_s ) ? s.top : s.top.to_int})"
+            svg["transform"] = "translate(#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s.x.to_s ) ? s.x : s.x.to_int},#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s.y0.to_s ) ? s.y0 : s.y0.to_int})"
             if (s.shape_angle)
               svg["transform"] += " rotate(#{180 * s.shape_angle / Math.PI})";
             end
@@ -61,9 +61,9 @@ module Rubyvis
           e = self.expect(e, "circle", svg);
         end
         #e = self.append(e, scenes, i);
-        tra.add_element(e)
+        gvs.add_element(e)
       }
-      return tra
+      return gvs
     end
   end
 end

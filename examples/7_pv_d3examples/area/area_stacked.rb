@@ -5,7 +5,7 @@ require 'rubyvis'
 
 data = pv.range(4).map {|i|
   pv.range(0, 10, 0.1).map {|x|
-    OpenStruct.new({:x=> x, :y=> Math.sin(x) + rand() * 0.5 + 2})
+    OpenStruct.new({:x=> x, :y=> Math.sin(x) + 0.5 + 2}) #:y=> Math.sin(x) + rand() * 0.5 + 2
   }
 }
 
@@ -94,7 +94,7 @@ vis = pv.Panel.new() do
     transform "translate(" + l.to_s + "," + t.to_s + ")"
 =begin
     #/* The stack layout. */
-    add (pv.Layout.Stack) do
+    pv.Layout.Stack do
       layers(data)
       x(lambda {|d| x.scale(d.x)})
       y(lambda {|d| y.scale(d.y)})
@@ -104,13 +104,13 @@ vis = pv.Panel.new() do
   end
 
 end
-
+#=begin
 vis.add(pv.Layout.Stack)
 .layers(data)
 .x(lambda {|d| x.scale(d.x)})
 .y(lambda {|d| y.scale(d.y)})
 .layer.add(pv.Area)
-
+#=end
 
 
 vis.render()

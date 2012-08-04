@@ -1,6 +1,6 @@
 module Rubyvis
   module SvgScene
-    def self.line(scenes, tra)
+    def self.line(scenes, gvs)
       return e if (scenes.size < 2)
       if (scenes[0].angle.nil? || scenes[0].radius.nil?)
         s = scenes[0]
@@ -8,7 +8,7 @@ module Rubyvis
         return self.line_segment(scenes) if (s.segmented)
 
         #/* visible */
-        return tra if (!s.visible)
+        return gvs if (!s.visible)
         fill = s.fill_style
         stroke = s.stroke_style
 
@@ -45,7 +45,7 @@ module Rubyvis
           "stroke-width"=> s.stroke_width,
           "stroke-linejoin"=> s.stroke_linejoin
         });
-        tra.add_element(e)
+        gvs.add_element(e)
       else
         _p="M"
         n=scenes.size
@@ -74,9 +74,9 @@ module Rubyvis
             "stroke-width"=> scenes[0].stroke_width,
             "stroke-linejoin"=> scenes[0].stroke_linejoin
         });
-        tra.add_element(e)
+        gvs.add_element(e)
       end
-      tra
+      gvs
     end
 
     def self.line_segment(scenes)
@@ -119,7 +119,7 @@ module Rubyvis
         elsif(paths)
           d = paths[i]
         else
-          d = "M#{s1.left},#{s1.top}#{path_segment(s1, s2)}"
+          d = "M#{s1.x},#{s1.y}#{path_segment(s1, s2)}"
         end
 
         e = SvgScene.expect(e, "path", {
@@ -178,9 +178,9 @@ module Rubyvis
       # no joins).
       #
 
-      p1 = Rubyvis.vector(s1.left, s1.top)
+      p1 = Rubyvis.vector(s1.x, s1.y)
 
-      p2 = Rubyvis.vector(s2.left, s2.top)
+      p2 = Rubyvis.vector(s2.x, s2.y)
 
       _p = p2.minus(p1)
 

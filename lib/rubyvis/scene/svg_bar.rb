@@ -1,6 +1,6 @@
 module Rubyvis
   module SvgScene
-    def self.bar(scenes, tra)
+    def self.bar(scenes, gvs)
       scenes.each_with_index do |s,i|
         next unless s.visible
         next if(s.fill_opacity==0 and s.stroke_opacity==0)
@@ -19,10 +19,10 @@ module Rubyvis
           "stroke-width"=> s.stroke_width
         })
 
-		  tra.add_element(e)
+		  gvs.add_element(e)
 
       end
-	  tra
+	  gvs
     end
   end
 end

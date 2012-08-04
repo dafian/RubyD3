@@ -1,6 +1,6 @@
 module Rubyvis
   module SvgScene
-    def self.area(scenes, tra)
+    def self.area(scenes, gvs)
       if (scenes[0].angle.nil? && scenes[0].end_angle.nil?)
         return if scenes.size==0
         s=scenes[0]
@@ -33,12 +33,13 @@ module Rubyvis
               sl = scenes[j - 1]
               case (s.interpolate)
                 when "step-before"
-                  pi = pi+"V#{sk.top}"
-                  pj = pj+"H#{sl.left + sl.width}"
+                  #pi = pi+"V#{sk.top}"
+                  pi = pi+"V#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ sk.y1.to_s ) ? sk.y1 : sk.y1.to_int}"
+                  pj = pj+"H#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (sl.x + sl.width).to_s ) ? (sl.x + sl.width) : (sl.x + sl.width).to_int }"
 
                 when "step-after"
-                  pi = pi+"H#{sk.left}"
-                  pj = pj+"V#{sl.top + sl.height}"
+                  pi = pi+"H#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ sk.x.to_s ) ? sk.x : sk.x.to_int}"
+                  pj = pj+"V#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (sl.y0 + sl.height).to_s ) ? (sl.y0 + sl.height) : (sl.y0 + sl.height).to_int}"
               end
             end
             p1.push(pi)
@@ -61,7 +62,7 @@ module Rubyvis
           (ii..k).each {|i|
             sj = scenes[j];
             pointsT.push(scenes[i])
-            pointsB.push(OpenStruct.new({:left=> sj.left + sj.width, :top=> sj.top + sj.height}))
+            pointsB.push(OpenStruct.new({:left=> (/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (sj.x + sj.width).to_s ) ? (sj.x + sj.width) : (sj.x + sj.width).to_int , :top=> (/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (sj.y0 + sj.height).to_s ) ? (sj.y0 + sj.height) : (sj.y0 + sj.height).to_int}))
             j=j-1
           }
 
@@ -129,7 +130,7 @@ module Rubyvis
           "stroke-width"=> s.stroke_width
         })
         #self.append(e, scenes, 0);
-        tra.add_element(e)
+        gvs.add_element(e)
       else
         _p="M"
         _i="L"
@@ -175,13 +176,13 @@ module Rubyvis
             "stroke-opacity"=> scenes[0].stroke_opacity,
             "stroke-width"=> scenes[0].stroke_width
         });
-        tra.add_element(e)
+        gvs.add_element(e)
       end
-      tra
+      gvs
     end
         
-    def self.area_segment(scenes)
-      e=scenes._g.get_element(1)
+    def self.area_segment(scenes, gvs)
+      #e=scenes._g.get_element(1)
       s = scenes[0]
       pathsT=nil
       pathsB=nil
@@ -192,7 +193,7 @@ module Rubyvis
         n.times {|i|
           sj = scenes[n - i - 1]
           pointsT.push(scenes[i])
-          pointsB.push(OpenStruct.new({:left=> sj.left + sj.width, :top=> sj.top + sj.height}));
+          pointsB.push(OpenStruct.new({:left=> (/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (sj.x + sj.width).to_s ) ? (sj.x + sj.width) : (sj.x + sj.width).to_int , :top=> (/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (sj.y0 + sj.height).to_s ) ? (sj.y0 + sj.height) : (sj.y0 + sj.height).to_int}));
         }
     
         if (s.interpolate == "basis") 
@@ -240,7 +241,7 @@ module Rubyvis
           
     
           #/* path */
-          d = "M#{s1.left},#{si.top}L#{s2.left},#{sj.top }L#{s2.left + s2.width},#{sj.top + sj.height}L#{s1.left + s1.width},#{si.top + si.height}Z"
+          d = "M#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s1.x.to_s ) ? s1.x : s1.x.to_int},#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ si.y1.to_s ) ? si.y1 : si.y1.to_int}L#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s2.x.to_s ) ? s2.x : s2.x.to_int},#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ sj.y0.to_s ) ? sj.y0 : sj.y0.to_int}L#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (s2.x + s2.width).to_s ) ? (s2.x + s2.width) : (s2.x + s2.width).to_int},#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (sj.y0 + sj.height).to_s ) ? (sj.y0 + sj.height) : (sj.y0 + sj.height).to_int}L#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (s1.x + s1.width).to_s ) ? (s1.x + s1.width) : (s1.x + s1.width).to_int},#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (si.y1 + si.height).to_s ) ? (si.y1 + si.height) : (si.y1 + si.height).to_int}Z"
         end
     
         e = self.expect(e, "path", {
@@ -255,9 +256,11 @@ module Rubyvis
             "stroke-opacity"=> s.stroke_opacity,
             "stroke-width"=> s.stroke_width
           });
-        e = self.append(e, scenes, i);
+        #e = self.append(e, scenes, i);
+        gvs.add_element(e)
       }
-      return e
+      #return e
+      gvs
     end
   end
 end

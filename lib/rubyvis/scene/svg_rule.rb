@@ -1,6 +1,6 @@
 module Rubyvis
   module SvgScene
-    def self.rule(scenes, tra)
+    def self.rule(scenes, gvs)
       scenes.each_with_index do |s,i|
         next unless s.visible
         stroke=s.stroke_style
@@ -25,9 +25,9 @@ module Rubyvis
           "stroke-width"=> s.stroke_width
         })
 
-        tra.add_element(e)
+        gvs.add_element(e)
       end
-      tra
+      gvs
     end
   end
 end

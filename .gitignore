@@ -1,0 +1,16 @@
+*.rbc
+test.html
+test.svg
+*.sess
+*~
+doc/*
+pkg/*
+spec/fixtures/protovis-d3.3.js
+.yardoc
+vendor/protovis/tests
+vendor/protovis/lib
+web/*.html
+web/examples/*
+web/upload_task.rb
+coverage
+coverage.info

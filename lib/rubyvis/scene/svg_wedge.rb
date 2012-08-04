@@ -1,6 +1,6 @@
 module Rubyvis
   module SvgScene
-    def self.wedge(scenes, tra)
+    def self.wedge(scenes, gvs)
       #e=scenes._g.elements[1]
       #e=scenes._g.get_element(1) #IO non lo uso
       scenes.each_with_index do |s,i|
@@ -50,14 +50,10 @@ module Rubyvis
           "stroke-width"=> s.stroke_width
         });
         #e=SvgScene.append(e,scenes,i)
-		  tra.add_element(e)
+		  gvs.add_element(e)
       end
       #e
-	  tra
-    end
-
-    def wedge_centroid
-
+	  gvs
     end
 
   end
