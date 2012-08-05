@@ -129,7 +129,6 @@ module Rubyvis
           "stroke-opacity"=> s.stroke_opacity,
           "stroke-width"=> s.stroke_width
         })
-        #self.append(e, scenes, 0);
         gvs.add_element(e)
       else
         _p="M"
@@ -140,7 +139,6 @@ module Rubyvis
           fill=s.fill_style
           stroke=s.stroke_style
           next if(fill.opacity==0.0 and stroke.opacity==0.0)
-          # /* points */
 
           r1 = s.inner_radius
           r2 = s.outer_radius
@@ -175,14 +173,13 @@ module Rubyvis
             "stroke"=> scenes[0].stroke,
             "stroke-opacity"=> scenes[0].stroke_opacity,
             "stroke-width"=> scenes[0].stroke_width
-        });
+        })
         gvs.add_element(e)
       end
       gvs
     end
         
     def self.area_segment(scenes, gvs)
-      #e=scenes._g.get_element(1)
       s = scenes[0]
       pathsT=nil
       pathsB=nil
@@ -256,10 +253,8 @@ module Rubyvis
             "stroke-opacity"=> s.stroke_opacity,
             "stroke-width"=> s.stroke_width
           });
-        #e = self.append(e, scenes, i);
         gvs.add_element(e)
       }
-      #return e
       gvs
     end
   end

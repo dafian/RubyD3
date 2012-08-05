@@ -557,8 +557,8 @@ module Rubyvis
     # nil if this is the first instance.
     #
     # @return a node in the scene graph, or nil.
-    def sibling                               # IO l'ho modificata quasi tutta'
-      if self.parent.type=='group' && !self.parent.scene[0].data.nil? #!(self.parent._data.value.is_a Proc)
+    def sibling
+      if self.parent.type=='group' && !self.parent.scene[0].data.nil?
         if self.parent._data.value.size > 1
           i=0
           while self.parent.scene[i+1]!= nil

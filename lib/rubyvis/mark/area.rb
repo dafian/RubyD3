@@ -214,10 +214,10 @@ module Rubyvis
     end
     def self.defaults
       a= Rubyvis::Colors.category20
-      Area.new.mark_extend(Mark.defaults).line_width(1.5).fill_style("none").interpolate('linear').tension(0.7).y0(nil).start_angle(lambda  {s=self.sibling; s ? s.end_angle: -Math::PI.quo(2) } ).inner_radius( 0 ).shape_rendering(nil) # IO ho modificato il fill_style di base
+      Area.new.mark_extend(Mark.defaults).line_width(1.5).fill_style("none").interpolate('linear').tension(0.7).y0(nil).start_angle(lambda  {s=self.sibling; s ? s.end_angle: -Math::PI.quo(2) } ).inner_radius( 0 ).shape_rendering(nil)
 	  end
     def anchor(name)
-      # IO non so se devo aggiungere l'anchor come il wedge per i radiali
+
       that=self
       partial=lambda {|s| s.inner_radius!=0 ? true : s.angle < 2*Math::PI}
       mid_radius=lambda {|s| (s.inner_radius+s.outer_radius) / 2.0}

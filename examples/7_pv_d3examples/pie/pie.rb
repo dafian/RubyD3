@@ -30,7 +30,7 @@ vis = pv.Panel.new() do
 
     label do
       dy '.35em'
-      transform "centroid" #for semplify, the label read "centroid" text and retrieve the correspondent value
+      transform "centroid" #semplify, the label read "centroid" text and retrieve the correspondent value
       text_anchor 'middle'
       visible(lambda {|d|  d > 0.15})
       text(lambda {|d| "%0.2f" %  d})
