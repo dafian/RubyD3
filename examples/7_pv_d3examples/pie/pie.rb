@@ -16,7 +16,7 @@ vis = pv.Panel.new() do
   height height
 
   group do
-    data (data.sort(&pv.reverse_order))
+    data data #(data.sort(&pv.reverse_order))
     classg 'arc'
     transform "translate(" + outerRadius.to_s + "," + outerRadius.to_s + ")"
 
