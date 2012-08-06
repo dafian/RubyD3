@@ -40,7 +40,7 @@ module Rubyvis
           "text-anchor"=> s.text_anchor
         }, {
         "font"=> s.font, "text-shadow"=> s.text_shadow, "text-decoration"=> s.text_decoration})
-        e.text=s.text.frozen? ? s.text.dup : s.text
+        e.text=s.text.frozen? ? s.text.dup : (/^[0-9]+$/.match s.text.to_s ) ? s.text.to_s + ".0" : s.text.to_s #s.text
         gvs.add_element(e)
       end
       gvs
