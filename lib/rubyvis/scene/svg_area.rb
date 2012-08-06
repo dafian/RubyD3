@@ -142,11 +142,12 @@ module Rubyvis
 
           r1 = s.inner_radius
           r2 = s.outer_radius
-          a = (s.angle).abs - Math::PI / 2
-          p0=r2 * Math.cos(a)
-          p1=r2 * Math.sin(a)
-          p2=r1 * Math.sin(a)
-          p3=r1 * Math.cos(a)
+          a1 = (s.angle).abs - Math::PI / 2
+          a2 = (Math::PI * 2 - (s.angle).abs) - Math::PI / 2
+          p0=r2 * Math.cos(a1)
+          p1=r2 * Math.sin(a1)
+          p2=r1 * Math.sin(a2)
+          p3=r1 * Math.cos(a2)
 
           if i<n-1
             _p = _p + "#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ p0.to_s ) ? p0 : p0.to_int},#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ p1.to_s ) ? p1 : p1.to_int}L"
