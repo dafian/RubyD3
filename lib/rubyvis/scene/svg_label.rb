@@ -36,7 +36,7 @@ module Rubyvis
           "transform"=> s.transform,
           "fill"=> s.fill,
           "fill-opacity"=> s.fill_opacity,
-          #"display"=>s.display,
+          "display"=> s.hidden,#"display"=>s.display,
           "text-anchor"=> s.text_anchor
         }, {
         "font"=> s.font, "text-shadow"=> s.text_shadow, "text-decoration"=> s.text_decoration})

@@ -20,7 +20,8 @@ module Rubyvis
           else 
             _p = "M0,#{r2}A#{r2},#{r2} 0 1,1 0,#{-r2}A#{r2},#{r2} 0 1,1 0,#{r2 }Z"
           end
-        else 
+        else
+
           sa = [s.start_angle, s.end_angle].min
           ea = [s.start_angle, s.end_angle].max
           c1 = Math.cos(sa)

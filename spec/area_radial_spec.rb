@@ -22,9 +22,6 @@ describe "AreaRadial" do
           inner_radius r/2
           outer_radius{|d| d * r}
           angle {index * Math::PI / 180 }
-          #fill "lightsteelblue"
-          #fill_rule "evenodd"
-
         end
 
         line do
@@ -32,9 +29,6 @@ describe "AreaRadial" do
           classline "line"
           radius {|d| d * r}
           angle { index * Math::PI/180}
-          #stroke "steelblue"
-          #fill "none"
-          #stroke_width "1.5px"
         end
 
       end

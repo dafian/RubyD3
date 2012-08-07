@@ -94,14 +94,14 @@ module Rubyvis
     # See {CSS3 text}[http://www.w3.org/TR/css3-text/#text-decoration]
     
 
-    attr_accessor_dsl :text, :font, :text_angle, [:text_style, lambda {|d| Rubyvis.color(d)}], :text_align, :text_baseline, :text_margin, :text_decoration, :text_shadow, :y, :x, :dy, :text_anchor, :classlabel, :transform, :text_anchor, :fill_opacity#, :display # IO aggiunto da y
+    attr_accessor_dsl :text, :font, :text_angle, [:text_style, lambda {|d| Rubyvis.color(d)}], :text_align, :text_baseline, :text_margin, :text_decoration, :text_shadow, :y, :x, :dy, :text_anchor, :classlabel, :transform, :text_anchor, :fill_opacity, :hidden#, :display # IO aggiunto da y
     # Mark type
     def type
       'label'
     end
     # Default properties for labels. See the individual properties for the default values.
     def self.defaults
-      Label.new.mark_extend(Mark.defaults).events(nil).text(Rubyvis.identity).font("10px sans-serif" ).text_angle( 0 ).text_style( 'none' ).text_align( 'left' ).text_baseline( 'bottom' ).text_margin(3).y(nil).x(nil).dy(nil).transform(nil).text_anchor(nil)
+      Label.new.mark_extend(Mark.defaults).events(nil).text(Rubyvis.identity).font("10px sans-serif" ).text_angle( 0 ).text_style( 'none' ).text_align( 'left' ).text_baseline( 'bottom' ).text_margin(3).y(nil).x(nil).dy(nil).transform(nil).text_anchor(nil).hidden(nil)
     end
 
     def children
