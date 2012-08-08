@@ -13,7 +13,7 @@ module Rubyvis
     
     def self.defaults
       a=Rubyvis.Colors.category20()
-      Wedge.new.mark_extend(Mark.defaults).start_angle(lambda  {s=self.sibling; s ? s.end_angle: -Math::PI.quo(2) } ).inner_radius( 0 ).line_width( 1.5 ).stroke_style( nil ).fill_style( lambda {a.scale(self.index)}).transform(nil)
+      Wedge.new.mark_extend(Mark.defaults).end_angle(lambda  {s=self.sibling; s ? s.start_angle: Math::PI * 2 } ).inner_radius( 0 ).line_width( 1.5 ).stroke_style( nil ).fill_style( lambda {a.scale(self.index)}).transform(nil)
     end
     def mid_radius
       (inner_radius+outer_radius) / 2.0
@@ -135,14 +135,14 @@ module Rubyvis
       
       if s.angle.nil?
         s.angle = s.end_angle - s.start_angle 
-      elsif s.end_angle.nil?
-        s.end_angle = s.start_angle + s.angle
+      elsif s.start_angle.nil?
+        s.start_angle = s.end_angle - s.angle
       end
       r = (s.inner_radius + s.outer_radius) / 2
       a = ((s.start_angle + s.end_angle) / 2) - Math::PI.quo(2)
       ca = Math.cos(a) * r
-      sa = Math.sin(a) * -r
-      s.centroid = "#{sa}, #{ca}"
+      sa = Math.sin(a) * r
+      s.centroid = "#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ ca.to_s ) ? ca : ca.to_int}, #{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ sa.to_s ) ? sa : sa.to_int}"
       mark_build_implied(s)
     end
 

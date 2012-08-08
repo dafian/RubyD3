@@ -114,6 +114,6 @@ vis.add(pv.Layout.Stack)
 
 
 vis.render()
-f = File.new('C:\Users\Andrea\Desktop\SVGhw\stacked_charts.svg', "w")
+f = File.new(File.dirname(__FILE__)+"/fixtures/stacked_charts.svg", "w")
 f.puts vis.to_svg
 f.close

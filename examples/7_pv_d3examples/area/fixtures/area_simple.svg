@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-size="10px" font-family="sans_serif" fill="" stroke="" stroke-width="" width="490" height="315">
+     <g transform="translate(20,20)">
+          <g class="rule">
+               <line shape-rendering="crispEdges" x1="0" y1="0" x2="0" y2="274" stroke="#eee"/>
+               <line class="axis" shape-rendering="crispEdges" x1="0" y1="275" x2="451" y2="275" stroke="#000"/>
+               <text x="0" y="278" dy=".71em" text-anchor="middle">0.0</text>
+               <text x="-3" y="275" dy=".35em" text-anchor="end">0.0</text>
+          </g>
+          <g class="rule">
+               <line shape-rendering="crispEdges" x1="45" y1="0" x2="45" y2="274" stroke="#eee"/>
+               <line shape-rendering="crispEdges" x1="0" y1="247.5" x2="451" y2="247.5" stroke="#eee"/>
+               <text x="45" y="278" dy=".71em" text-anchor="middle">0.1</text>
+               <text x="-3" y="247.5" dy=".35em" text-anchor="end">0.1</text>
+          </g>
+          <g class="rule">
+               <line shape-rendering="crispEdges" x1="90" y1="0" x2="90" y2="274" stroke="#eee"/>
+               <line shape-rendering="crispEdges" x1="0" y1="220" x2="451" y2="220" stroke="#eee"/>
+               <text x="90" y="278" dy=".71em" text-anchor="middle">0.2</text>
+               <text x="-3" y="220" dy=".35em" text-anchor="end">0.2</text>
+          </g>
+          <g class="rule">
+               <line shape-rendering="crispEdges" x1="135" y1="0" x2="135" y2="274" stroke="#eee"/>
+               <line shape-rendering="crispEdges" x1="0" y1="192.5" x2="451" y2="192.5" stroke="#eee"/>
+               <text x="135" y="278" dy=".71em" text-anchor="middle">0.3</text>
+               <text x="-3" y="192.5" dy=".35em" text-anchor="end">0.3</text>
+          </g>
+          <g class="rule">
+               <line shape-rendering="crispEdges" x1="180" y1="0" x2="180" y2="274" stroke="#eee"/>
+               <line shape-rendering="crispEdges" x1="0" y1="165" x2="451" y2="165" stroke="#eee"/>
+               <text x="180" y="278" dy=".71em" text-anchor="middle">0.4</text>
+               <text x="-3" y="165" dy=".35em" text-anchor="end">0.4</text>
+          </g>
+          <g class="rule">
+               <line shape-rendering="crispEdges" x1="225" y1="0" x2="225" y2="274" stroke="#eee"/>
+               <line shape-rendering="crispEdges" x1="0" y1="137.5" x2="451" y2="137.5" stroke="#eee"/>
+               <text x="225" y="278" dy=".71em" text-anchor="middle">0.5</text>
+               <text x="-3" y="137.5" dy=".35em" text-anchor="end">0.5</text>
+          </g>
+          <g class="rule">
+               <line shape-rendering="crispEdges" x1="270" y1="0" x2="270" y2="274" stroke="#eee"/>
+               <line shape-rendering="crispEdges" x1="0" y1="110" x2="451" y2="110" stroke="#eee"/>
+               <text x="270" y="278" dy=".71em" text-anchor="middle">0.6</text>
+               <text x="-3" y="110" dy=".35em" text-anchor="end">0.6</text>
+          </g>
+          <g class="rule">
+               <line shape-rendering="crispEdges" x1="315" y1="0" x2="315" y2="274" stroke="#eee"/>
+               <line shape-rendering="crispEdges" x1="0" y1="82.5" x2="451" y2="82.5" stroke="#eee"/>
+               <text x="315" y="278" dy=".71em" text-anchor="middle">0.7</text>
+               <text x="-3" y="82.5" dy=".35em" text-anchor="end">0.7</text>
+          </g>
+          <g class="rule">
+               <line shape-rendering="crispEdges" x1="360" y1="0" x2="360" y2="274" stroke="#eee"/>
+               <line shape-rendering="crispEdges" x1="0" y1="55" x2="451" y2="55" stroke="#eee"/>
+               <text x="360" y="278" dy=".71em" text-anchor="middle">0.8</text>
+               <text x="-3" y="55" dy=".35em" text-anchor="end">0.8</text>
+          </g>
+          <g class="rule">
+               <line shape-rendering="crispEdges" x1="405" y1="0" x2="405" y2="274" stroke="#eee"/>
+               <line shape-rendering="crispEdges" x1="0" y1="27.5" x2="451" y2="27.5" stroke="#eee"/>
+               <text x="405" y="278" dy=".71em" text-anchor="middle">0.9</text>
+               <text x="-3" y="27.5" dy=".35em" text-anchor="end">0.9</text>
+          </g>
+          <g class="rule">
+               <line shape-rendering="crispEdges" x1="450" y1="0" x2="450" y2="274" stroke="#eee"/>
+               <line shape-rendering="crispEdges" x1="0" y1="0" x2="451" y2="0" stroke="#eee"/>
+               <text x="450" y="278" dy=".71em" text-anchor="middle">1.0</text>
+               <text x="-3" y="0" dy=".35em" text-anchor="end">1.0</text>
+          </g>
+          <path class="area" d="M0,137.5L23.684210526315788,92.51072919052905L47.368421052631575,52.474152077911185L71.05263157894737,21.797739588914197L94.73684210526315,3.8585385625444815L118.42105263157895,0.6314058091323318L142.10526315789474,12.47160381146881L165.78947368421055,38.07569126098036L189.4736842105263,74.62501383757584L213.15789473684208,118.09599889176826L236.8421052631579,163.70309489537925L260.5263157894737,206.4255941808974L284.2105263157895,241.56034310484023L307.89473684210526,265.23949392472974L331.5789473684211,274.85630110096514L355.2631578947368,269.3520877661815L378.9473684210526,249.33279134054226L402.63157894736844,217.0022582398425L426.31578947368416,175.9196310023523L450,130.60753614120125L450,274L426.31578947368416,274L402.63157894736844,274L378.9473684210526,274L355.2631578947368,274L331.5789473684211,274L307.89473684210526,274L284.2105263157895,274L260.5263157894737,274L236.8421052631579,274L213.15789473684208,274L189.4736842105263,274L165.78947368421055,274L142.10526315789474,274L118.42105263157895,274L94.73684210526315,274L71.05263157894737,274L47.368421052631575,274L23.684210526315788,274L0,274Z" fill="lightsteelblue"/>
+          <path class="line" d="M0,137.5L23.684210526315788,92.51072919052905L47.368421052631575,52.474152077911185L71.05263157894737,21.797739588914197L94.73684210526315,3.8585385625444815L118.42105263157895,0.6314058091323318L142.10526315789474,12.47160381146881L165.78947368421055,38.07569126098036L189.4736842105263,74.62501383757584L213.15789473684208,118.09599889176826L236.8421052631579,163.70309489537925L260.5263157894737,206.4255941808974L284.2105263157895,241.56034310484023L307.89473684210526,265.23949392472974L331.5789473684211,274.85630110096514L355.2631578947368,269.3520877661815L378.9473684210526,249.33279134054226L402.63157894736844,217.0022582398425L426.31578947368416,175.9196310023523L450,130.60753614120125" fill="none" stroke="steelblue" stroke-width="1.5px"/>
+          <circle class="area" fill="#fff" stroke="steelblue" stroke-width="1.5px" cx="0" cy="137.5" r="3.5"/>
+          <circle class="area" fill="#fff" stroke="steelblue" stroke-width="1.5px" cx="23.684210526315788" cy="92.51072919052905" r="3.5"/>
+          <circle class="area" fill="#fff" stroke="steelblue" stroke-width="1.5px" cx="47.368421052631575" cy="52.474152077911185" r="3.5"/>
+          <circle class="area" fill="#fff" stroke="steelblue" stroke-width="1.5px" cx="71.05263157894737" cy="21.797739588914197" r="3.5"/>
+          <circle class="area" fill="#fff" stroke="steelblue" stroke-width="1.5px" cx="94.73684210526315" cy="3.8585385625444815" r="3.5"/>
+          <circle class="area" fill="#fff" stroke="steelblue" stroke-width="1.5px" cx="118.42105263157895" cy="0.6314058091323318" r="3.5"/>
+          <circle class="area" fill="#fff" stroke="steelblue" stroke-width="1.5px" cx="142.10526315789474" cy="12.47160381146881" r="3.5"/>
+          <circle class="area" fill="#fff" stroke="steelblue" stroke-width="1.5px" cx="165.78947368421055" cy="38.07569126098036" r="3.5"/>
+          <circle class="area" fill="#fff" stroke="steelblue" stroke-width="1.5px" cx="189.4736842105263" cy="74.62501383757584" r="3.5"/>
+          <circle class="area" fill="#fff" stroke="steelblue" stroke-width="1.5px" cx="213.15789473684208" cy="118.09599889176826" r="3.5"/>
+          <circle class="area" fill="#fff" stroke="steelblue" stroke-width="1.5px" cx="236.8421052631579" cy="163.70309489537925" r="3.5"/>
+          <circle class="area" fill="#fff" stroke="steelblue" stroke-width="1.5px" cx="260.5263157894737" cy="206.4255941808974" r="3.5"/>
+          <circle class="area" fill="#fff" stroke="steelblue" stroke-width="1.5px" cx="284.2105263157895" cy="241.56034310484023" r="3.5"/>
+          <circle class="area" fill="#fff" stroke="steelblue" stroke-width="1.5px" cx="307.89473684210526" cy="265.23949392472974" r="3.5"/>
+          <circle class="area" fill="#fff" stroke="steelblue" stroke-width="1.5px" cx="331.5789473684211" cy="274.85630110096514" r="3.5"/>
+          <circle class="area" fill="#fff" stroke="steelblue" stroke-width="1.5px" cx="355.2631578947368" cy="269.3520877661815" r="3.5"/>
+          <circle class="area" fill="#fff" stroke="steelblue" stroke-width="1.5px" cx="378.9473684210526" cy="249.33279134054226" r="3.5"/>
+          <circle class="area" fill="#fff" stroke="steelblue" stroke-width="1.5px" cx="402.63157894736844" cy="217.0022582398425" r="3.5"/>
+          <circle class="area" fill="#fff" stroke="steelblue" stroke-width="1.5px" cx="426.31578947368416" cy="175.9196310023523" r="3.5"/>
+          <circle class="area" fill="#fff" stroke="steelblue" stroke-width="1.5px" cx="450" cy="130.60753614120125" r="3.5"/>
+     </g>
+</svg>

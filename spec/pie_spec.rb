@@ -24,11 +24,10 @@ describe "Pie" do
         transform "translate(" + outerRadius.to_s + "," + outerRadius.to_s + ")"
 
         wedge do
-          #dy '.35em'
+          fill color
           innerRadius innerRadius
           outerRadius outerRadius
           angle a
-          fill color
         end
 
         label do

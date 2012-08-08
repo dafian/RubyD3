@@ -41,7 +41,6 @@ end
 
 
 vis.render()
-
-f = File.new('C:\Users\Andrea\Desktop\SVGhw\pie.svg', "w")
+f = File.new(File.dirname(__FILE__)+"/fixtures/pie.svg", "w")
 f.puts vis.to_svg
 f.close

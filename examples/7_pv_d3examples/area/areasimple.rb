@@ -103,6 +103,6 @@ vis = pv.Panel.new() do
 end
 
 vis.render()
-f = File.new("C:/Users/Andrea/Desktop/SVGhw/area_simple.svg", "w")
+f = File.new(File.dirname(__FILE__)+"/fixtures/area_simple.svg", "w")
 f.puts vis.to_svg
 f.close

@@ -6,7 +6,7 @@ require 'benchmark'
 # BIO::Image::Profile::NGS    in quanto in profile è possibile visualizzare anche dati provenienti da altri tipi di tecnologie e.g. microarrays
 
 class Areachart
-  def Areachart.areacharter(data, path = "C:/Users/Andrea/Desktop/area_charter.svg")
+  def Areachart.areacharter(data, path = "/fixtures/area_profile.svg")
     Benchmark.bm do |rep|
     w = 1300
     h = 600
@@ -41,7 +41,6 @@ class Areachart
 
       group do
         transform ("translate(" + p.to_s + "," + p.to_s + ")")
-
 
         group do
 
@@ -92,52 +91,39 @@ class Areachart
 
         end
         rep.report("areavis") do
-        # The area
-        area do
-          data data
-          y0 h - 1
-          x {|d| x.scale(d.x)}
-          y1 {|d| y.scale(d.y)}
-          classarea("area")
-          fill "lightsteelblue"
-        end
+          # The area
+          area do
+            data data
+            y0 h - 1
+            x {|d| x.scale(d.x)}
+            y1 {|d| y.scale(d.y)}
+            classarea("area")
+            fill "lightsteelblue"
+          end
         end
 
         rep.report("linevis") do
-        #The tops line
-        line do
-          data data
-          stroke_width "1.5px"
-          stroke "steelblue"
-          fill "none"
-          x {|d| x.scale(d.x)}
-          y {|d| y.scale(d.y)}
-          classline("line")
+          #The tops line
+          line do
+            data data
+            stroke_width "1.5px"
+            stroke "steelblue"
+            fill "none"
+            x {|d| x.scale(d.x)}
+            y {|d| y.scale(d.y)}
+            classline("line")
+          end
         end
-        end
-=begin
-        # The dots on the tops line
-        dot do
-          data data
-          shape_radius(2)
-          cx {|d| x.scale(d.x)}
-          cy {|d| y.scale(d.y)}
-          fill "#fff"
-          stroke "steelblue"
-          classdot("area")
-          stroke_width "1.5px"
-        end
-=end
       end
     end
     rep.report("rendering") do
-    vis.render()
+      vis.render()
     end
     rep.report("to_svg") do
-    f = File.new("#{path}", "w")
-    f.puts vis.to_svg
-    f.close
-    end
+      f = File.new(File.dirname(__FILE__)+"#{path}", "w")
+      f.puts vis.to_svg
+      f.close
+      end
     end
   end
 end

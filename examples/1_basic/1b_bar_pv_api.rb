@@ -13,7 +13,5 @@ vis.add(pv.Bar).data([1, 1.2, 1.7, 1.5, 0.7, 0.3]).
   left(lambda {index * 25})
 
 vis.render()
-f = File.new('C:\Users\Andrea\Desktop\newsvg1.svg', "w") #crea o sovrascrive un file
-f.puts vis.to_svg # stampa nel file
-f.close # chiude il file
-#puts vis.to_svg
+
+puts vis.to_svg

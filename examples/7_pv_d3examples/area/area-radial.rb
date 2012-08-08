@@ -41,6 +41,6 @@ end
 
 vis.render()
 
-f = File.new('C:\Users\Andrea\Desktop\SVGhw\area-radial.svg', "w")
+f = File.new(File.dirname(__FILE__)+"/fixtures/area-radial.svg", "w")
 f.puts vis.to_svg
 f.close

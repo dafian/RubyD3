@@ -19,7 +19,5 @@ vis = pv.Panel.new() do
 end
 
 vis.render
-f = File.new('C:\Users\Andrea\Desktop\newsvg.svg', "w") #crea o sovrascrive un file
-f.puts vis.to_svg # stampa nel file
-f.close # chiude il file
-#puts vis.to_svg
+
+puts vis.to_svg

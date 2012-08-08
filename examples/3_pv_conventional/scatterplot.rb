@@ -54,7 +54,5 @@ vis.add(pv.Panel)
   .title(lambda {|d| "%0.1f" % d.z})
 
 vis.render()
-f1=File.open('C:\Users\Andrea\Desktop\scatterplot.svg', "w")
-f1.puts vis.to_svg
-f1.close
-#puts vis.to_svg
+
+puts vis.to_svg
