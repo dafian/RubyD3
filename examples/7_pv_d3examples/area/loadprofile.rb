@@ -13,6 +13,6 @@ Benchmark.bm do |rep|
 end
 
   rep.report("charting") do
-NgsProfiler.profiler(data)  #you can insert the destination path as 2nd argument for the SVG file
+NgsProfiler.profiler(data)  #you can insert the destination path for the SVG file as 2nd argument
     end
 end
