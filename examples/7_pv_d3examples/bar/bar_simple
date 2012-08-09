@@ -1,0 +1,20 @@
+$:.unshift(File.dirname(__FILE__)+"/../../../lib")
+require 'rubyvis'
+
+vis = pv.Panel.new do
+  width 150
+  height 150
+  bar do
+    data [1, 1.2, 1.7, 1.5, 0.7, 0.3]
+    width 20
+    height {|d| d * 80}
+    x {index * 25}
+    y {|d| 150 - d * 80}
+    fill "rgb(31,119,180)"
+  end
+end
+
+vis.render
+f = File.new(File.dirname(__FILE__)+"/fixtures/bar_simple.svg", "w")
+f.puts vis.to_svg
+f.close

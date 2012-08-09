@@ -7,8 +7,16 @@ p = [20, 50, 30, 20]
 x = pv.range(0, w - p[0] - p[3])
 y = pv.range(0, h - p[0] - p[2])
 z = ["lightpink", "darkgray", "lightblue"]
-parse = Rubivis::Format.date("%m%y").parse
-format = pv.Format.date("%b")
+
+=begin
+format= pv.Format::Date.new("%m/%Y");
+$crimea.each_with_index {|d,i|
+  d.date = format.parse(d.date)
+}
+=end
+format = pv.Format::Date.new("%m/%Y")
+parse = format.parse
+
 
 
 vis = pv.Panel.new() do
@@ -41,3 +49,6 @@ vis = pv.Panel.new() do
   end
 
 end
+
+vis.render
+puts vis.to_svg
