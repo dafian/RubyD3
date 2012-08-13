@@ -22,24 +22,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="stack.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/rubyvis/layout/stack.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="154" column="35" selection-start="5800" selection-end="5800" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2_bar_and_rule.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/1_basic/2_bar_and_rule.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="0" selection-start="763" selection-end="763" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="bar_simple" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/7_pv_d3examples/bar/bar_simple">
           <provider selected="true" editor-type-id="text-editor">
@@ -67,37 +49,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="area_radial_spec.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spec/area_radial_spec.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="39" selection-start="0" selection-end="911" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="svg_bar.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/rubyvis/scene/svg_bar.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="107" selection-start="368" selection-end="368" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="svg_label.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/rubyvis/scene/svg_label.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="22" selection-start="957" selection-end="1035" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="areasimple.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="areasimple.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/7_pv_d3examples/area/areasimple.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="105" column="0" selection-start="1842" selection-end="1937" vertical-scroll-proportion="0.65462756">
+            <state line="4" column="82" selection-start="85" selection-end="85" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -106,7 +61,52 @@
       <file leaf-file-name="1a_bar_rbp_api.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/1_basic/1a_bar_rbp_api.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="24" selection-start="648" selection-end="648" vertical-scroll-proportion="0.0">
+            <state line="17" column="15" selection-start="654" selection-end="654" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="area.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/rubyvis/mark/area.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="42" selection-start="275" selection-end="275" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="svg_area.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/rubyvis/scene/svg_area.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="32" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wedge.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/rubyvis/mark/wedge.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="138" column="93" selection-start="4345" selection-end="4345" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="svg_wedge.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/rubyvis/scene/svg_wedge.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="106" selection-start="14" selection-end="14" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="colors.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/rubyvis/color/colors.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="129" column="42" selection-start="5351" selection-end="5351" vertical-scroll-proportion="4.075594">
               <folding />
             </state>
           </provider>
@@ -214,6 +214,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="spec" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rubyvis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rubyvis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -246,7 +260,37 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="examples" />
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rubyvis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scene" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rubyvis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rubyvis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rubyvis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="color" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -435,15 +479,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34305316" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15098634" sideWeight="0.27631578" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15098634" sideWeight="0.51480263" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15098634" sideWeight="0.1069079" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15098634" sideWeight="0.68421054" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43585527" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24671052" sideWeight="0.49772382" order="8" side_tool="true" content_ui="tabs" />
@@ -560,83 +604,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/rubyvis/mark/anchor.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="19" selection-start="454" selection-end="454" vertical-scroll-proportion="-1.6204239">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/7_pv_d3examples/area/area-radial.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="20" selection-start="812" selection-end="812" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/4_pv_custom/crimea/crimea_grouped_bar.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="45" selection-start="1068" selection-end="1068" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/1_basic/2_bar_and_rule.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="763" selection-end="763" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examples/1_basic/1a_bar_rbp_api.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="24" selection-start="648" selection-end="648" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/rubyvis/layout/stack.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="35" selection-start="5800" selection-end="5800" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/rubyvis/scene/svg_group.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/rubyvis/scene/svg_wedge.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="61" selection-start="377" selection-end="377" vertical-scroll-proportion="-1.4940617">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/rubyvis/scene/svg_line.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="42" selection-start="318" selection-end="318" vertical-scroll-proportion="-3.230404">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/rubyvis/scene/svg_label.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="22" selection-start="957" selection-end="1035" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/rubyvis/scene/svg_bar.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="107" selection-start="368" selection-end="368" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spec/area_radial_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="39" selection-start="0" selection-end="911" vertical-scroll-proportion="0.0">
@@ -667,7 +634,84 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/7_pv_d3examples/area/areasimple.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="0" selection-start="1842" selection-end="1937" vertical-scroll-proportion="0.65462756">
+        <state line="4" column="82" selection-start="85" selection-end="85" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/build_site.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="30" selection-start="303" selection-end="303" vertical-scroll-proportion="-2.7629797">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/rubyvis/color/color.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="73" selection-start="371" selection-end="371" vertical-scroll-proportion="-2.6478555">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/rubyvis/transform.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="18" selection-start="291" selection-end="291" vertical-scroll-proportion="0.6139955">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/1_basic/1a_bar_rbp_api.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="15" selection-start="654" selection-end="654" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/rubyvis/mark/area.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="42" selection-start="275" selection-end="275" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/rubyvis/layout/stack.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="154" column="35" selection-start="5800" selection-end="5800" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/rubyvis/scene/svg_area.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="32" selection-start="305" selection-end="305" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/rubyvis/mark/wedge.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="138" column="93" selection-start="4345" selection-end="4345" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/spec_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="53" selection-start="267" selection-end="267" vertical-scroll-proportion="0.039534885">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/rubyvis/scene/svg_wedge.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="106" selection-start="14" selection-end="14" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/rubyvis/color/colors.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="129" column="42" selection-start="5351" selection-end="5351" vertical-scroll-proportion="4.075594">
           <folding />
         </state>
       </provider>
