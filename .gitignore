@@ -14,3 +14,4 @@ web/examples/*
 web/upload_task.rb
 coverage
 coverage.info
+.idea/
