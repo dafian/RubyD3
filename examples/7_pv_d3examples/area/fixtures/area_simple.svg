@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-size="10px" font-family="sans_serif" fill="" stroke="" stroke-width="" width="490" height="315">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+t-size="10px" font-family="sans_serif" width="490" height="315">
      <g transform="translate(20,20)">
           <g class="rule">
                <line shape-rendering="crispEdges" x1="0" y1="0" x2="0" y2="274" stroke="#eee"/>

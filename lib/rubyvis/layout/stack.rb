@@ -4,6 +4,10 @@ module Rubyvis
     def self.Stack
       Rubyvis::Layout::Stack
     end
+
+    def type
+      'layout.stack'
+    end
     
     # Implements a layout for stacked visualizations, ranging from simple
     # stacked bar charts to more elaborate "streamgraphs" composed of stacked
@@ -91,7 +95,7 @@ module Rubyvis
       def initialize
         super
         @none=lambda {nil}
-        @prop = {"t"=> @none, "l"=> @none, "r"=> @none, "b"=> @none, "w"=> @none, "h"=> @none}
+        @prop = {"t"=> @none, "l"=> @none, "r"=> @none, "b"=> @none, "w"=> @none, "h"=> @none, "x"=>@none, "y"=>@none}
         @values=nil
         @_x=lambda {0}
         @_y=lambda {0}
@@ -163,7 +167,7 @@ module Rubyvis
             stack[0] = values[i][j]
             o.index = j
             x[j] = self._x.js_apply(o, stack) if i==0
-            dy[i][j] = self._y.js_apply(o, stack)
+            dy[i][j] = h - self._y.js_apply(o, stack)  #IO AGGIUNTO ORA LA H -
           }
           stack.shift()
         }
@@ -284,10 +288,10 @@ module Rubyvis
       
       def layer
         that=self
-        value = Rubyvis::Mark.new().data(lambda {  that.values[self.parent.index] }).top(proxy("t")).left(proxy("l")).right(proxy("r")).
+        value = Rubyvis::Mark.new().data(lambda {  that.values[self.parent.index] }).top(proxy("t")).left(proxy("l")).right(proxy("r")).x("x").y("y").
           bottom(proxy("b")).
         width(proxy("w")).
-        height(proxy("h")).x(nil).y(nil)
+        height(proxy("h"))
         
         class << value # :nodoc:
           def that=(v)

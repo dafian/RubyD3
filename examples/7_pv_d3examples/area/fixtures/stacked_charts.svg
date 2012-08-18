@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-size="10px" font-family="sans-serif" fill="none" stroke="none" stroke-width="1.5" width="430" height="225">
+     <g transform="translate(20,5)">
+          <line shape-rendering="crispEdges" x1="40.4040404040404" y1="200" x2="40.4040404040404" y2="205" stroke="rgb(0,0,0)" stroke-width="1"/>
+          <line shape-rendering="crispEdges" x1="80.8080808080808" y1="200" x2="80.8080808080808" y2="205" stroke="rgb(0,0,0)" stroke-width="1"/>
+          <line shape-rendering="crispEdges" x1="121.21212121212122" y1="200" x2="121.21212121212122" y2="205" stroke="rgb(0,0,0)" stroke-width="1"/>
+          <line shape-rendering="crispEdges" x1="161.6161616161616" y1="200" x2="161.6161616161616" y2="205" stroke="rgb(0,0,0)" stroke-width="1"/>
+          <line shape-rendering="crispEdges" x1="202.02020202020202" y1="200" x2="202.02020202020202" y2="205" stroke="rgb(0,0,0)" stroke-width="1"/>
+          <line shape-rendering="crispEdges" x1="242.42424242424244" y1="200" x2="242.42424242424244" y2="205" stroke="rgb(0,0,0)" stroke-width="1"/>
+          <line shape-rendering="crispEdges" x1="282.82828282828285" y1="200" x2="282.82828282828285" y2="205" stroke="rgb(0,0,0)" stroke-width="1"/>
+          <line shape-rendering="crispEdges" x1="323.2323232323232" y1="200" x2="323.2323232323232" y2="205" stroke="rgb(0,0,0)" stroke-width="1"/>
+          <line shape-rendering="crispEdges" x1="363.6363636363636" y1="200" x2="363.6363636363636" y2="205" stroke="rgb(0,0,0)" stroke-width="1"/>
+     </g>
+     <g transform="translate(20,5)">
+          <text x="0" y="205" dy=".71em" fill="rgb(0,0,0)" text-anchor="middle">0.0</text>
+          <text x="40.4040404040404" y="205" dy=".71em" fill="rgb(0,0,0)" text-anchor="middle">1.0</text>
+          <text x="80.8080808080808" y="205" dy=".71em" fill="rgb(0,0,0)" text-anchor="middle">2.0</text>
+          <text x="121.21212121212122" y="205" dy=".71em" fill="rgb(0,0,0)" text-anchor="middle">3.0</text>
+          <text x="161.6161616161616" y="205" dy=".71em" fill="rgb(0,0,0)" text-anchor="middle">4.0</text>
+          <text x="202.02020202020202" y="205" dy=".71em" fill="rgb(0,0,0)" text-anchor="middle">5.0</text>
+          <text x="242.42424242424244" y="205" dy=".71em" fill="rgb(0,0,0)" text-anchor="middle">6.0</text>
+          <text x="282.82828282828285" y="205" dy=".71em" fill="rgb(0,0,0)" text-anchor="middle">7.0</text>
+          <text x="323.2323232323232" y="205" dy=".71em" fill="rgb(0,0,0)" text-anchor="middle">8.0</text>
+          <text x="363.6363636363636" y="205" dy=".71em" fill="rgb(0,0,0)" text-anchor="middle">9.0</text>
+     </g>
+     <g transform="translate(20,5)">
+          <line shape-rendering="crispEdges" x1="0" y1="200" x2="400" y2="200" stroke="#000" stroke-width="1"/>
+          <line shape-rendering="crispEdges" x1="0" y1="128.57142857142856" x2="400" y2="128.57142857142856" stroke="rgba(128,128,128,.2)" stroke-opacity="0.2" stroke-width="1"/>
+          <line shape-rendering="crispEdges" x1="0" y1="57.14285714285714" x2="400" y2="57.14285714285714" stroke="rgba(128,128,128,.2)" stroke-opacity="0.2" stroke-width="1"/>
+     </g>
+     <g transform="translate(20,5)">
+          <text x="-3" y="200" dy=".35em" fill="rgb(0,0,0)" text-anchor="end">0.0</text>
+          <text x="-3" y="128.57142857142856" dy=".35em" fill="rgb(0,0,0)" text-anchor="end">5.0</text>
+          <text x="-3" y="57.14285714285714" dy=".35em" fill="rgb(0,0,0)" text-anchor="end">10.0</text>
+     </g>
+     <g transform="translate(20,5)"/>
+</svg>
