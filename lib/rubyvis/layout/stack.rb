@@ -4,11 +4,11 @@ module Rubyvis
     def self.Stack
       Rubyvis::Layout::Stack
     end
-
+=begin
     def type
       'layout.stack'
     end
-    
+=end
     # Implements a layout for stacked visualizations, ranging from simple
     # stacked bar charts to more elaborate "streamgraphs" composed of stacked
     # areas. Stack layouts uses length as a visual encoding, as opposed to

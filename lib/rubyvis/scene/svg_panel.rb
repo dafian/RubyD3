@@ -47,8 +47,8 @@ module Rubyvis
           if s.fill then g.set_attributes({"fill"=>s.fill}) end
           if s.stroke then g.set_attributes({"stroke"=>s.stroke}) end
           if s.stroke_width then g.set_attributes({"stroke-width"=>s.stroke_width}) end
-          if s.width then g.set_attributes({"width"=>(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (s.width+s.left+s.right).to_s ) ? s.width+s.left+s.right : (s.width+s.left+s.right).to_int}) end
-          if s.height then g.set_attributes({"height"=>(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (s.height+s.top+s.bottom).to_s ) ? s.height+s.top+s.bottom : (s.height+s.top+s.bottom).to_int}) end
+          if s.width then g.set_attributes({"width"=>(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s.width.to_s ) ? s.width : s.width.to_int}) end
+          if s.height then g.set_attributes({"height"=>(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s.height.to_s ) ? s.height : s.height.to_int}) end
 
           #g.attributes['width']=s.width+s.left+s.right
           #g.attributes['height']=s.height+s.top+s.bottom
