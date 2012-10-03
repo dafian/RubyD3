@@ -96,12 +96,11 @@ vis = pv.Panel.new() do
     width w
 #=begin
     #/* The stack layout. */
-    add(pv.Layout.Stack) do
-      layers(data)
-      x(lambda {|d| x.scale(d.x)})
-      y(lambda {|d| y.scale(d.y)})
-      layer.add(pv.Area)
-    end
+    add(pv.Layout.Stack)
+      .layers(data)
+      .x(lambda {|d| x.scale(d.x)})
+      .y(lambda {|d| y.scale(d.y)})
+      .layer.add(pv.Area)
 #=end
   end
 

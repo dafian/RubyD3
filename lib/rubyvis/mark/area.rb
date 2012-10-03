@@ -202,7 +202,7 @@ module Rubyvis
     
     
     
-    attr_accessor_dsl :width, :height, :line_width, [:stroke_style, lambda {|d| Rubyvis.color(d)}], [:fill_style, lambda {|d| Rubyvis.color(d)}], :segmented, :interpolate, :tension, :classarea, :y0, :start_angle, :end_angle, :angle, :inner_radius, :outer_radius, :x, :y1, :shape_rendering, :fill, :fill_opacity, :stroke, :stroke_opacity, :stroke_width, :fill_rule # IO ho aggiunto da classarea in poi
+    attr_accessor_dsl :width, :height, :line_width, [:stroke_style, lambda {|d| Rubyvis.color(d)}], [:fill_style, lambda {|d| Rubyvis.color(d)}], :segmented, :interpolate, :tension, :classarea, :y0, :start_angle, :end_angle, :angle, :inner_radius, :outer_radius, :x, :y1, :shape_rendering, :fill, :fill_opacity, :stroke, :stroke_opacity, :stroke_width, :fill_rule, :y # IO ho aggiunto da classarea in poi
     def type
       "area"
     end
@@ -214,7 +214,7 @@ module Rubyvis
     end
     def self.defaults
       a= Rubyvis::Colors.category20
-      Area.new.mark_extend(Mark.defaults).line_width(1.5).fill_style("none").interpolate('linear').tension(0.7).y0(nil).start_angle(lambda  {s=self.sibling; s ? s.end_angle: -Math::PI.quo(2) } ).inner_radius( 0 ).shape_rendering(nil)
+      Area.new.mark_extend(Mark.defaults).line_width(1.5).fill_style("none").interpolate('linear').tension(0.7).y0(nil).start_angle(lambda  {s=self.sibling; s ? s.end_angle: -Math::PI.quo(2) } ).inner_radius( 0 ).shape_rendering(nil).x(nil).y(nil)
 	  end
     def anchor(name)
 

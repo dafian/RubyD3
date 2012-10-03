@@ -274,6 +274,8 @@ module Rubyvis
         pdy = horizontal ? "h" : "w"
         px = i < 0 ? (horizontal ? "l" : "b") : orient[i + 1,1]
         py = orient[0,1]
+        #px = "x"
+        #py = "y"
         
         
         @values=values
@@ -288,7 +290,7 @@ module Rubyvis
       
       def layer
         that=self
-        value = Rubyvis::Mark.new().data(lambda {  that.values[self.parent.index] }).top(proxy("t")).left(proxy("l")).right(proxy("r")).x("x").y("y").
+        value = Rubyvis::Mark.new().data(lambda {  that.values[self.parent.index] }).top(proxy("t")).left(proxy("l")).right(proxy("r")).x(proxy("x")).y(proxy("y")).
           bottom(proxy("b")).
         width(proxy("w")).
         height(proxy("h"))
