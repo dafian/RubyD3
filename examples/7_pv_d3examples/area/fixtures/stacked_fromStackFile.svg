@@ -1,1 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="200"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="200">
+     <path d="M0,156L35,160L70,160L105,160L140,160L140,0L105,0L70,0L35,0L0,0Z"/>
+     <path d="M0,160L35,160L70,160L105,160L140,160L140,160L105,160L70,160L35,160L0,156Z"/>
+     <path d="M0,160L35,160L70,160L105,160L140,160L140,320L105,320L70,320L35,320L0,316Z"/>
+     <path d="M0,160L35,160L70,160L105,160L140,160L140,480L105,480L70,480L35,480L0,476Z"/>
+</svg>

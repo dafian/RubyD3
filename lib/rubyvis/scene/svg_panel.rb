@@ -78,7 +78,7 @@ module Rubyvis
         end
         # fill
         #e=self.fill(e,scenes, i)
-        gvs=g
+        gvs=g if gvs.nil?
         k=self.scale
         t=s.transform
         SvgScene.scale=SvgScene.scale*t.k
@@ -109,14 +109,20 @@ module Rubyvis
         SvgScene.scale=k
         # stroke
         #e=SvgScene.stroke(e,scenes,i)
-        gvs = self.stroke(scenes, i, gvs) if (s.stroke_style.opacity>0 or s.events == "all") # IO ho modificato
+        #gvs = self.stroke(scenes, i, gvs) if (s.scenes.mark.root == scenes.markstroke_style.opacity>0 or s.events == "all") # IO ho modificato
         # clip
         if (s.overflow=='hidden')
           scenes._g=g=c.parent
           e=c.next_sibling_node
         end
       end
-      return e
+      #return e
+      if scenes.mark.root == scenes.mark
+        return e
+      else
+        return g
+      end
+      #scenes.mark.root == scenes.mark ? return e : return g
       #return g
       
     end
