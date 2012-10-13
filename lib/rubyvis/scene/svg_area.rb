@@ -129,7 +129,9 @@ module Rubyvis
           "stroke-opacity"=> s.stroke_opacity,
           "stroke-width"=> s.stroke_width
         })
-        gvs.add_element(e)
+
+        gvs ? gvs.add_element(e) : gvs = e
+
       else
         _p="M"
         _i="L"

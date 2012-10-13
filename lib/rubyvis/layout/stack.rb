@@ -95,7 +95,7 @@ module Rubyvis
       def initialize
         super
         @none=lambda {nil}
-        @prop = {"t"=> @none, "l"=> @none, "r"=> @none, "b"=> @none, "w"=> @none, "h"=> @none, "x"=>@none, "y"=>@none}
+        @prop = {"t"=> @none, "l"=> @none, "r"=> @none, "b"=> @none, "w"=> @none, "h"=> @none, "x"=>@none, "y0"=>@none, "y1"=>@none}
         @values=nil
         @_x=lambda {0}
         @_y=lambda {0}
@@ -271,11 +271,12 @@ module Rubyvis
         # /* Find the property definitions for dynamic substitution. */
         
         i = orient.index("-")
-        pdy = horizontal ? "h" : "w"
-        px = i < 0 ? (horizontal ? "l" : "b") : orient[i + 1,1]
-        py = orient[0,1]
-        #px = "x"
-        #py = "y"
+        #pdy = horizontal ? "h" : "w"
+        #px = i < 0 ? (horizontal ? "l" : "b") : orient[i + 1,1]
+        #py = orient[0,1]
+        px = "x"
+        py = "y0"
+        pdy = "y1"
         
         
         @values=values
@@ -290,7 +291,7 @@ module Rubyvis
       
       def layer
         that=self
-        value = Rubyvis::Mark.new().data(lambda {  that.values[self.parent.index] }).top(proxy("t")).left(proxy("l")).right(proxy("r")).x(proxy("x")).y(proxy("y")).
+        value = Rubyvis::Mark.new().data(lambda {  that.values[self.parent.index] }).top(proxy("t")).left(proxy("l")).right(proxy("r")).x(proxy("x")).y0(proxy("y0")).y1(proxy("y1")).
           bottom(proxy("b")).
         width(proxy("w")).
         height(proxy("h"))
