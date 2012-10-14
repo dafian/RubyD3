@@ -167,7 +167,7 @@ module Rubyvis
             stack[0] = values[i][j]
             o.index = j
             x[j] = self._x.js_apply(o, stack) if i==0
-            dy[i][j] = h - self._y.js_apply(o, stack)  #IO AGGIUNTO ORA LA H -
+            i == 0 ? dy[i][j] = h - self._y.js_apply(o, stack) : dy[i][j] = dy[i-1][j] - self._y.js_apply(o, stack)  #IO modificato il calcolo del dy
           }
           stack.shift()
         }
@@ -255,7 +255,7 @@ module Rubyvis
             end
           }
         else
-          m.times {|j| y[_index[0]][j] = 0}
+          m.times {|j| y[_index[0]][j] = h}
         end
         
         # Propagate the offset to the other series. */
@@ -263,8 +263,9 @@ module Rubyvis
         o = y[_index[0]][j]
           (1...n).each {|i|
             
-            o += dy[_index[i - 1]][j]
-            y[_index[i]][j] = o
+            #o += dy[_index[i - 1]][j]
+            #y[_index[i]][j] = o
+            y[_index[i]][j] = dy[i-1][j]
           }
         }
         
@@ -286,7 +287,7 @@ module Rubyvis
         # puts "stack: x:#{px}, y:#{py}, dy:#{pdy}" if $DEBUG
         @prop[px] =lambda {|i1,j| x[j]}
         @prop[py] =lambda {|i1,j| y[i1][j]}
-        @prop[pdy]=lambda {|i1,j| dy[i1][j]}  
+        @prop[pdy]=lambda {|i1,j| dy[i1][j]}
       end
       
       def layer

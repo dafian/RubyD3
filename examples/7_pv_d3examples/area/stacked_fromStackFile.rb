@@ -3,8 +3,9 @@
 $:.unshift(File.dirname(__FILE__)+"/../../../lib")
 require 'rubyvis'
 
-w = 800
+w = 140
 h = 200
+color = Rubyvis::Colors.category20
 
 #/* The root panel. */
 vis = pv.Panel.new()
@@ -19,6 +20,9 @@ vis.add(Rubyvis::Layout::Stack)
 .x(lambda { index * 35})
 .y(lambda {|d| d * 40})
 .layer.add(Rubyvis::Area)
+.fill (lambda{|d| color.scale(d)}).
+
+#vedere perchè il color non funge e perchè non funziona l'altro file areastacked
 
 =begin
 vis.add(Rubyvis::Layout::Stack)
