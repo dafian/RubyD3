@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-size="10px" font-family="sans-serif" width="150" height="200">
+     <line shape-rendering="crispEdges" x1="0" y1="199.5" x2="150" y2="199.5" stroke="rgb(0,0,0)"/>
+     <line shape-rendering="crispEdges" x1="0" y1="159.5" x2="150" y2="159.5" stroke="rgb(0,0,0)"/>
+     <line shape-rendering="crispEdges" x1="0" y1="119.5" x2="150" y2="119.5" stroke="rgb(0,0,0)"/>
+     <line shape-rendering="crispEdges" x1="0" y1="79.5" x2="150" y2="79.5" stroke="rgb(0,0,0)"/>
+     <text x="3" y="196.5">0.0</text>
+     <text x="3" y="156.5">0.5</text>
+     <text x="3" y="116.5">1.0</text>
+     <text x="3" y="76.5">1.5</text>
+     <rect x="25" y="120" width="20" height="80" fill="rgb(31,119,180)"/>
+     <rect x="50" y="104" width="20" height="96" fill="rgb(31,119,180)"/>
+     <rect x="75" y="64" width="20" height="136" fill="rgb(31,119,180)"/>
+     <rect x="100" y="80" width="20" height="120" fill="rgb(31,119,180)"/>
+     <rect x="125" y="144" width="20" height="56" fill="rgb(31,119,180)"/>
+     <text x="35" y="197" fill="rgb(0,0,0)" text-anchor="middle">1.0</text>
+     <text x="60" y="197" fill="rgb(0,0,0)" text-anchor="middle">1.2</text>
+     <text x="85" y="197" fill="rgb(0,0,0)" text-anchor="middle">1.7</text>
+     <text x="110" y="197" fill="rgb(0,0,0)" text-anchor="middle">1.5</text>
+     <text x="135" y="197" fill="rgb(0,0,0)" text-anchor="middle">0.7</text>
+</svg>

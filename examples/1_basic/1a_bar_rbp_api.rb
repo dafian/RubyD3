@@ -20,4 +20,6 @@ end
 
 vis.render
 
-puts vis.to_svg
+f = File.new(File.dirname(__FILE__)+"/fixtures/1a_bar_rbp_api.svg", "w")
+f.puts vis.to_svg
+f.close
