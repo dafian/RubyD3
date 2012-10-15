@@ -11,10 +11,12 @@ data = pv.range(4).map {|i|
 
 w = 400
 h = 200
-l = 20
+l = 25
 b = 20
 r = 10
-t = 5
+t = 10
+
+color = Rubyvis::Colors.category20
 
 x = pv.Scale.linear(0, 9.9).range(0, w)
 y = pv.Scale.linear(0, 14).range(h, 0)
@@ -94,25 +96,17 @@ vis = pv.Panel.new() do
     transform "translate(" + l.to_s + "," + t.to_s + ")"
     height h
     width w
-#=begin
+
     #/* The stack layout. */
     add(pv.Layout.Stack)
       .layers(data)
       .x(lambda {|d| x.scale(d.x)})
       .y(lambda {|d| y.scale(d.y)})
       .layer.add(pv.Area)
-#=end
+      .fill (lambda{color.scale(self.parent.index)})
   end
 
 end
-=begin
-vis.add(pv.Layout.Stack)
-.layers(data)
-.x(lambda {|d| x.scale(d.x)})
-.y(lambda {|d| y.scale(d.y)})
-.layer.add(pv.Area)
-=end
-
 
 vis.render()
 f = File.new(File.dirname(__FILE__)+"/fixtures/stacked_charts.svg", "w")

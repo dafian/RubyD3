@@ -167,7 +167,8 @@ module Rubyvis
             stack[0] = values[i][j]
             o.index = j
             x[j] = self._x.js_apply(o, stack) if i==0
-            i == 0 ? dy[i][j] = h - self._y.js_apply(o, stack) : dy[i][j] = dy[i-1][j] - self._y.js_apply(o, stack)  #IO modificato il calcolo del dy
+            #dy[i][j] = self._y.js_apply(o, stack)
+            i == 0 ? dy[i][j] = self._y.js_apply(o, stack) : dy[i][j] = dy[i-1][j] - h + self._y.js_apply(o, stack)  #IO modificato il calcolo del dy
           }
           stack.shift()
         }
@@ -265,7 +266,7 @@ module Rubyvis
             
             #o += dy[_index[i - 1]][j]
             #y[_index[i]][j] = o
-            y[_index[i]][j] = dy[i-1][j]
+            y[_index[i]][j] = dy[i-1][j]  # IO ho modificato il calcolo della y
           }
         }
         
