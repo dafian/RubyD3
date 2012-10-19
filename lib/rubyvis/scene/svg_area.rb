@@ -62,7 +62,7 @@ module Rubyvis
           (ii..k).each {|i|
             sj = scenes[j];
             pointsT.push(scenes[i])
-            pointsB.push(OpenStruct.new({:left=> (/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (sj.x + sj.width).to_s ) ? (sj.x + sj.width) : (sj.x + sj.width).to_int , :top=> (/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (sj.y0 + sj.height).to_s ) ? (sj.y0 + sj.height) : (sj.y0 + sj.height).to_int}))
+            pointsB.push(OpenStruct.new({:x=> (/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (sj.x + sj.width).to_s ) ? (sj.x + sj.width) : (sj.x + sj.width).to_int , :y1=> (/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (sj.y0).to_s ) ? (sj.y0) : (sj.y0).to_int}))
             j=j-1
           }
 
@@ -77,7 +77,7 @@ module Rubyvis
             pathB = Rubyvis::SvgScene.curve_monotone(pointsB);
           end
 
-          "#{pointsT[0].left },#{ pointsT[0].top }#{ pathT }L#{ pointsB[0].left},#{pointsB[0].top}#{pathB}"
+          "#{pointsT[0].x },#{ pointsT[0].y1 }#{ pathT }L#{ pointsB[0].x},#{pointsB[0].y1}#{pathB}"
         }
 
         #/* points */
@@ -89,17 +89,17 @@ module Rubyvis
 
         while(i < scenes.size)
           si = scenes[i]
-=begin
-          if (si.width==0 and si.height==0)
+
+          if (si.y1==si.y0)#if (si.x==0 and si.y1==si.y0)
             i+=1
             next
           end
-=end
+
 
           j=i+1
           while(j<scenes.size) do
             sj=scenes[j]
-            #break if sj.width==0 and sj.height==0
+            break if (sj.y1==sj.y0)#if sj.x==0 and sj.y1==sj.y0
             j+=1
           end
 
@@ -193,7 +193,7 @@ module Rubyvis
         n.times {|i|
           sj = scenes[n - i - 1]
           pointsT.push(scenes[i])
-          pointsB.push(OpenStruct.new({:left=> (/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (sj.x + sj.width).to_s ) ? (sj.x + sj.width) : (sj.x + sj.width).to_int , :top=> (/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (sj.y0 + sj.height).to_s ) ? (sj.y0 + sj.height) : (sj.y0 + sj.height).to_int}));
+          pointsB.push(OpenStruct.new({:x=> (/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (sj.x + sj.width).to_s ) ? (sj.x + sj.width) : (sj.x + sj.width).to_int , :y0=> (/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (sj.y0 + sj.height).to_s ) ? (sj.y0 + sj.height) : (sj.y0 + sj.height).to_int}));
         }
     
         if (s.interpolate == "basis") 

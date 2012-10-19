@@ -26,8 +26,8 @@ module Rubyvis::SvgScene
     # weights and four control points.    
     def weight(w)
       OpenStruct.new({
-      :x=> w[0] * p0.left + w[1] * p1.left + w[2] * p2.left + w[3] * p3.left,
-      :y=> w[0] * p0.top  + w[1] * p1.top  + w[2] * p2.top  + w[3] * p3.top
+      :x=> w[0] * p0.x + w[1] * p1.x + w[2] * p2.x + w[3] * p3.x,
+      :y=> w[0] * p0.y1  + w[1] * p1.y1  + w[2] * p2.y1  + w[3] * p3.y1
       })
     end
     def convert
@@ -137,7 +137,7 @@ module Rubyvis::SvgScene
     pi = 1
 
     if (quad) 
-        path += "Q#{(p.left - t0.x * 2 / 3)},#{(p.top - t0.y * 2 / 3)},#{p.left},#{p.top}"
+        path += "Q#{(p.x - t0.x * 2 / 3)},#{(p.y1 - t0.y * 2 / 3)},#{p.x},#{p.y1}"
         p0 = points[1];
         pi = 2;
     end
@@ -146,19 +146,19 @@ module Rubyvis::SvgScene
       t = tangents[1]
       p = points[pi]
       pi+=1
-      path += "C#{(p0.left + t0.x)},#{(p0.top + t0.y) },#{(p.left - t.x) },#{(p.top - t.y)},#{p.left},#{p.top}"
+      path += "C#{(p0.x + t0.x)},#{(p0.y1 + t0.y) },#{(p.x - t.x) },#{(p.y1 - t.y)},#{p.x},#{p.y1}"
       
       2.upto(tangents.size-1) {|i|
         p = points[pi];
         t = tangents[i];
-        path += "S#{(p.left - t.x)},#{(p.top - t.y)},#{p.left},#{p.top}"
+        path += "S#{(p.x - t.x)},#{(p.y1 - t.y)},#{p.x},#{p.y1}"
         pi+=1
       }
     end
 
     if (quad) 
     lp = points[pi];
-    path += "Q#{(p.left + t.x * 2 / 3)},#{(p.top + t.y * 2 / 3)},#{lp.left},#{lp.top}"
+    path += "Q#{(p.x + t.x * 2 / 3)},#{(p.y1 + t.y * 2 / 3)},#{lp.x},#{lp.y1}"
     end
 
     path;
@@ -180,7 +180,7 @@ module Rubyvis::SvgScene
     
     if (quad) 
     p = points[1]
-    paths.push("M#{p0.left},#{p0.top }Q#{(p.left - t.x * 2 / 3.0 )},#{(p.top - t.y * 2 / 3)},#{p.left},#{p.top}")
+    paths.push("M#{p0.x},#{p0.y1 }Q#{(p.x - t.x * 2 / 3.0 )},#{(p.y1 - t.y * 2 / 3)},#{p.x},#{p.y1}")
     pi = 2
     end
     
@@ -189,17 +189,17 @@ module Rubyvis::SvgScene
     t0 = t;
     p = points[pi]
     t = tangents[i]
-    paths.push("M#{p0.left },#{p0.top
-      }C#{(p0.left + t0.x) },#{(p0.top + t0.y)
-      },#{(p.left - t.x) },#{(p.top - t.y)
-      },#{p.left },#{p.top}")
+    paths.push("M#{p0.x },#{p0.y1
+      }C#{(p0.x + t0.x) },#{(p0.y1 + t0.y)
+      },#{(p.x - t.x) },#{(p.y1 - t.y)
+      },#{p.x },#{p.y1}")
     pi+=1
     }
     
     if (quad) 
     lp = points[pi];
     paths.push("M#{p.left },#{p.top
-        }Q#{(p.left + t.x * 2 / 3) },#{(p.top + t.y * 2 / 3) },#{lp.left },#{lp.top}")
+        }Q#{(p.x + t.x * 2 / 3) },#{(p.y1 + t.y * 2 / 3) },#{lp.x },#{lp.y1}")
     end
     
     paths
@@ -218,13 +218,13 @@ module Rubyvis::SvgScene
     p1 = points[1]
     p2 = points[2]
     3.upto(points.size-1) {|i|
-      tangents.push(OpenStruct.new({:x=> a * (p2.left - p0.left), :y=> a * (p2.top - p0.top)}))
+      tangents.push(OpenStruct.new({:x=> a * (p2.x - p0.x), :y=> a * (p2.y1 - p0.y1)}))
       p0 = p1;
       p1 = p2;
       p2 = points[i];
     }
   
-    tangents.push(OpenStruct.new({:x=> a * (p2.left - p0.left), :y=> a * (p2.top - p0.top)}))
+    tangents.push(OpenStruct.new({:x=> a * (p2.x - p1.x), :y=> a * (p2.y1 - p0.y1)}))
     return tangents;
   end
 
@@ -266,24 +266,24 @@ module Rubyvis::SvgScene
     0.upto(points.size-2) do |k| 
     
 #    while(k < points.size-1) do 
-      d[k] = (points[k+1].top - points[k].top) / (points[k+1].left - points[k].left).to_f
+      d[k] = (points[k+1].y1 - points[k].y1) / (points[k+1].x - points[k].x).to_f
       k+=1
     end
     
     #/* Initialize the tangents at every point as the average of the secants. */
     m[0] = d[0]
-    dx[0] = points[1].left - points[0].left
+    dx[0] = points[1].x - points[0].x
     
     
     1.upto(points.size-2) {|k|
       m[k] = (d[k-1]+d[k]) / 2.0
-      dx[k] = (points[k+1].left - points[k-1].left) / 2.0
+      dx[k] = (points[k+1].x - points[k-1].x) / 2.0
     }
     
     k=points.size-1
     
     m[k] = d[k-1];
-    dx[k] = (points[k].left - points[k-1].left);
+    dx[k] = (points[k].x - points[k-1].x);
     
     # /* Step 3. Very important, step 3. Yep. Wouldn't miss it. */
     (points.size-1).times {|kk|

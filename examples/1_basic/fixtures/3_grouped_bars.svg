@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-size="10px" font-family="sans-serif" width="200" height="150">
+     <rect x="0" y="90" width="20" height="60" fill="rgb(31,119,180)"/>
+     <rect x="25" y="85" width="20" height="65" fill="rgb(31,119,180)"/>
+     <text x="10" y="147" fill="rgb(0,0,0)" text-anchor="middle">a-1</text>
+     <text x="35" y="147" fill="rgb(0,0,0)" text-anchor="middle">a-2</text>
+     <text x="10" y="93" dy=".71em" fill="rgb(0,0,0)" text-anchor="middle">0-0</text>
+     <text x="35" y="88" dy=".71em" fill="rgb(0,0,0)" text-anchor="middle">0-1</text>
+     <rect x="60" y="70" width="20" height="80" fill="rgb(174,199,232)"/>
+     <rect x="85" y="65" width="20" height="85" fill="rgb(174,199,232)"/>
+     <text x="70" y="147" fill="rgb(0,0,0)" text-anchor="middle">b-1</text>
+     <text x="95" y="147" fill="rgb(0,0,0)" text-anchor="middle">b-2</text>
+     <text x="70" y="73" dy=".71em" fill="rgb(0,0,0)" text-anchor="middle">1-0</text>
+     <text x="95" y="68" dy=".71em" fill="rgb(0,0,0)" text-anchor="middle">1-1</text>
+     <rect x="120" y="50" width="20" height="100" fill="rgb(255,127,14)"/>
+     <rect x="145" y="45" width="20" height="105" fill="rgb(255,127,14)"/>
+     <text x="130" y="147" fill="rgb(0,0,0)" text-anchor="middle">c-1</text>
+     <text x="155" y="147" fill="rgb(0,0,0)" text-anchor="middle">c-2</text>
+     <text x="130" y="53" dy=".71em" fill="rgb(0,0,0)" text-anchor="middle">2-0</text>
+     <text x="155" y="48" dy=".71em" fill="rgb(0,0,0)" text-anchor="middle">2-1</text>
+     <rect x="180" y="30" width="20" height="120" fill="rgb(255,187,120)"/>
+     <rect x="205" y="25" width="20" height="125" fill="rgb(255,187,120)"/>
+     <text x="190" y="147" fill="rgb(0,0,0)" text-anchor="middle">d-1</text>
+     <text x="215" y="147" fill="rgb(0,0,0)" text-anchor="middle">d-2</text>
+     <text x="190" y="33" dy=".71em" fill="rgb(0,0,0)" text-anchor="middle">3-0</text>
+     <text x="215" y="28" dy=".71em" fill="rgb(0,0,0)" text-anchor="middle">3-1</text>
+</svg>

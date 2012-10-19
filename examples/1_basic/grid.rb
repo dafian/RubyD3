@@ -25,5 +25,6 @@ vis = pv.Panel.new()
 
 vis.render();
 
-
-puts vis.to_svg
+f = File.new(File.dirname(__FILE__)+"/fixtures/grid.svg", "w")
+f.puts vis.to_svg
+f.close
