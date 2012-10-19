@@ -21,11 +21,11 @@ module Rubyvis
         if (scenes.size > 2 and (['basis', 'cardinal', 'monotone'].include? s.interpolate))
           case (s.interpolate)
             when "basis"
-              d = d+ curve_basis(scenes)
+              d = d+ curve_basis_line(scenes)
             when "cardinal"
-              d = d+curve_cardinal(scenes, s.tension)
+              d = d+curve_cardinal_line(scenes, s.tension)
             when "monotone"
-              d = d+curve_monotone(scenes)
+              d = d+curve_monotone_line(scenes)
           end
         else
           (1...scenes.size).each {|i|
@@ -87,11 +87,11 @@ module Rubyvis
       paths=nil
       case s.interpolate
         when "basis"
-          paths = curve_basis_segments(scenes)
+          paths = curve_basis_segments_line(scenes)
         when "cardinal"
-          paths=curve_cardinal_segments(scenes, s.tension)
+          paths=curve_cardinal_segments_line(scenes, s.tension)
         when "monotone"
-          paths = curve_monotone_segments(scenes)
+          paths = curve_monotone_segments_line(scenes)
       end
 
       (0...(scenes.size-1)).each {|i|
