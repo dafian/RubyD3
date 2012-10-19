@@ -5,37 +5,41 @@ $:.unshift(File.dirname(__FILE__)+"/../../lib")
 require 'rubyvis'
 
 data = pv.range(0, 10, 0.1).map {|x| 
-  OpenStruct.new({:x=> x, :y=> Math.sin(x) + 2+rand()})
+  OpenStruct.new({:x=> x, :y=> Math.sin(x) + 2}) #+rand()
 }
 
 #p data
-w = 400
-h = 200
-x = pv.Scale.linear(data, lambda {|d| d.x}).range(0, w)
-
-
-y = pv.Scale.linear(data, lambda {|d| d.y}).range(0, h);
+w = 430
+h = 225
+x = pv.Scale.linear(data, lambda {|d| d.x}).range(0, w - 30)
+y = pv.Scale.linear(data, lambda {|d| d.y}).range(h - 25, 0);
 
 #/* The root panel. */
-vis = pv.Panel.new()
-  .width(w)
-  .height(h)
-  .bottom(20)
-  .left(20)
-  .right(10)
-  .top(5)
+vis = pv.Panel.new() do
+  width(w)
+  height(h)
+  fill "none"
 
-vis.add(pv.Line).
-  data(data).
-  line_width(5).
-  left(lambda {|d| x.scale(d.x)}).
-  bottom(lambda {|d| y.scale(d.y)}).
-  anchor("bottom").add(pv.Line).
-    stroke_style('red').
-    line_width(1)
-     
+  group do
+    transform "translate(20,5)"
+
+    line do
+      data(data).
+      stroke_width(5).
+      x(lambda {|d| x.scale(d.x)}).
+      y(lambda {|d| y.scale(d.y)}).
+      stroke("rgb(31,119,180)").
+      add(pv.Line).
+      x(lambda {|d| x.scale(d.x)}).
+      y(lambda {|d| y.scale(d.y)}).
+      stroke('red').
+      stroke_width(1)
+    end
+  end
+end
 
 vis.render();
 
-
-puts vis.to_svg
+f = File.new(File.dirname(__FILE__)+"/fixtures/line.svg", "w")
+f.puts vis.to_svg
+f.close

@@ -19,7 +19,7 @@ module Rubyvis
           "height"=> s.height
           })
           
-          e.add_attribute("xlink:href", s.url);
+          e.set_attributes("xlink:href" => s.url);
         end
         #e = self.append(e, scenes, i);
         gvs.add_element(e) # IO ho aggiunto

@@ -38,8 +38,6 @@ vis = Rubyvis::Panel.new do |pan|
       m=(i/2).floor
 
         gro.panel do
-        left(n*(p_w+10))
-        top(m*(p_h+10))
         width p_w
         height p_h
 
