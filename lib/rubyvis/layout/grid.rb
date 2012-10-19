@@ -56,8 +56,8 @@ module Rubyvis
           data(lambda {that.scene[that.index]._grid}).
           width(lambda {that.width/that.cols.to_f}).
           height(lambda {that.height/that.rows.to_f}).
-          left(lambda {(that.width/that.cols.to_f)*(self.index % that.cols)}).
-          top(lambda {(that.height/that.rows.to_f)*(self.index / that.cols).floor})
+          x(lambda {(that.width/that.cols.to_f)*(self.index % that.cols)}).
+          y(lambda {(that.height/that.rows.to_f)*(self.index / that.cols).floor})
         m.parent=self
         m
       end
