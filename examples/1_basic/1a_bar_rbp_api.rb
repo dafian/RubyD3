@@ -15,6 +15,7 @@ vis = pv.Panel.new() do
     height {|d| d * 80}
     x {index * 25}
     y {|d| 150 - d * 80}
+    fill "rgb(31,119,180)"
   end
 end
 

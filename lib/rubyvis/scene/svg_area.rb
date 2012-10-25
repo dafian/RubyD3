@@ -108,7 +108,7 @@ module Rubyvis
           j=i+1
           while(j<scenes.size) do
             sj=scenes[j]
-            break if (sj.y1==sj.y0)#if sj.x==0 and sj.y1==sj.y0
+            break if (sj.x == 0 and (sj.y0 - sj.y1) == 0)#(sj.y1==sj.y0)#if sj.x==0 and sj.y1==sj.y0
             j+=1
           end
 
