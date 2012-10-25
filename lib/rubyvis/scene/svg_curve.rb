@@ -497,7 +497,7 @@ module Rubyvis::SvgScene
     tangents;
   end
 
-  def self.monotone_tangents(points)
+  def self.monotone_tangents_line(points)
     tangents = []
     d = []
     m = []

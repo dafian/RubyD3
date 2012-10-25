@@ -9,8 +9,6 @@ data = Rubyvis.range(-5, 5, 0.1).map {|x|
   OpenStruct.new({:x=> x, :y=>  x**2-10})
 }
 
-
-
 #p data
 w = 400
 h = 100
@@ -18,41 +16,64 @@ x = pv.Scale.linear(data, lambda {|d| d.x}).range(0, w)
 y = pv.Scale.linear(data, lambda {|d| d.y}).range(-50, h*2);
 
 #/* The root panel. */
-vis = pv.Panel.new()
-  .width(w)
-  .height(h*2+20)
-  .bottom(20)
-  .left(20)
-  .right(10)
-  .top(5)
+vis = pv.Panel.new() do |pan|
+  pan.width(w + 30)
+  pan.height(h*2+45)
+  pan.font_size("10px")
+  pan.font_family("sans-serif")
 
-types=["offset","mirror"]
+  types=["offset","mirror"]
+
+  pan.group do |gr|
+    gr.transform "translate(20,5)"
+
+    gr.group do |gro|
 
 
-pan=vis.add(Rubyvis::Panel).
-data(types).
-height(80).
-top(lambda { index*110+30})
-pan.add(Rubyvis::Rule).
-  data(x.ticks).
-  left(x).
-  anchor("bottom").
-  add(Rubyvis::Label).
-  text(x.tick_format)
-  
-  
-pan.add(Rubyvis::Layout::Horizon)
+      gro.data(types)
+      gro.transform(lambda {|d| "translate(#{0},#{types.index(d)*110+30})"})
+      gro.width(w)
+      gro.height(h - 20)
+
+      gro.rule do |ru|
+        ru.data(x.ticks)
+        ru.x1(x)
+        ru.x2(x)
+        ru.y1(0)
+        ru.y2(80)
+        ru.shape_rendering("crispEdges")
+        ru.stroke("rgb(0,0,0)")
+        ru.stroke_width 1
+      end
+
+      gro.label do |la|
+        la.data x.ticks
+        la.text(x.tick_format)
+        la.y 3
+        la.dy ".71em"
+        la.transform (lambda {|d| "translate(#{ x.scale(d)},#{80})"})
+        la.text_anchor "middle"
+      end
+
+      gro.add(Rubyvis::Layout::Horizon)
          .bands(3)
-         .mode(lambda {|d| d})         
-       .band.add(Rubyvis::Area)
-         .data(data)
-         .left(lambda {|d| x[d.x]})
-         .height(lambda {|d| y[d.y]})
-     
-pan.anchor("top").add(Rubyvis::Label)
-.top(-15)
+         .mode(lambda {|d| d})
+         .band
+           .add(Rubyvis::Area)
+           .data(data)
+           .x(lambda {|d| x[d.x]})
+           .y1(lambda {|d| h - 20 - y[d.y]})
+           .y0(lambda {|d| y[d.y]})
+
+      gro.label do
+
+      end
+    end
+  end
+end
 
 vis.render();
 
-
-puts vis.to_svg
+f = File.new(File.dirname(__FILE__)+"/fixtures/horizon.svg", "w")
+f.puts vis.to_svg
+f.close

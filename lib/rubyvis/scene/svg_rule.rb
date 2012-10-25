@@ -6,10 +6,10 @@ module Rubyvis
         stroke=s.stroke_style
         next if(stroke.opacity==0.0)
 
-        _x1 = (/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s.x1.to_s ) ? s.x1 : s.x1.to_int
-        _x2 = (/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s.x2.to_s ) ? s.x2 : s.x2.to_int
-        _y1 = (/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s.y1.to_s ) ? s.y1 : s.y1.to_int
-        _y2 = (/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s.y2.to_s ) ? s.y2 : s.y2.to_int
+        _x1 = s.x1
+        _x2 = s.x2
+        _y1 = s.y1
+        _y2 = s.y2
 
         e=SvgScene.expect(e,'line', {
           "class" => s.classrule,

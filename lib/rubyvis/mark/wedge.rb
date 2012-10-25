@@ -142,7 +142,7 @@ module Rubyvis
       a = ((s.start_angle + s.end_angle) / 2) - Math::PI.quo(2)
       ca = Math.cos(a) * r
       sa = Math.sin(a) * r
-      s.centroid = "#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ ca.to_s ) ? ca : ca.to_int}, #{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ sa.to_s ) ? sa : sa.to_int}"
+      s.centroid = "#{ca}, #{sa}"
       mark_build_implied(s)
     end
 

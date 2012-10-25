@@ -15,7 +15,7 @@ module Rubyvis
         return e if (fill.opacity==0.0 and  stroke.opacity==0.0)
         #/* points */
 
-        d = "M#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s.x.to_s ) ? s.x : s.x.to_int},#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s.y.to_s ) ? s.y: s.y.to_int}" # IO per eliminare i decimali uguali a zero e ho aggiunto il +1 perch� d3 lo fa in automatico
+        d = "M#{s.x},#{s.y}" # IO per eliminare i decimali uguali a zero e ho aggiunto il +1 perch� d3 lo fa in automatico
         #d = "M#{s.left},#{s.top}" #IO ho aggiunto la stringa sopra al posto di questa
 
         if (scenes.size > 2 and (['basis', 'cardinal', 'monotone'].include? s.interpolate))
@@ -56,9 +56,9 @@ module Rubyvis
           p1=r2 * Math.sin(a)
 
           if i<n-1
-            _p = _p + "#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ p0.to_s ) ? p0 : p0.to_int},#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ p1.to_s ) ? p1 : p1.to_int}L"
+            _p = _p + "#{p0},#{p1}L"
           else
-            _p = _p + "#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ p0.to_s ) ? p0 : p0.to_int},#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ p1.to_s ) ? p1 : p1.to_int}"
+            _p = _p + "#{p0},#{p1}"
           end
         }
         e = SvgScene.expect(e, "path", {
@@ -151,17 +151,17 @@ module Rubyvis
         e = 1 - s1.eccentricity
         r = Math.sqrt(dx * dx + dy * dy) / (2 * e)
         if !((e<=0) or (e>1))
-          return "A#{r},#{r} 0 0,#{l} #{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s2.x.to_s ) ? s2.x : s2.x.to_int},#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s2.y.to_s ) ? s2.y: s2.y.to_int}" # IO ho modificato per togliere i decimali inutili e aggiungere l'unit�
+          return "A#{r},#{r} 0 0,#{l} #{s2.x},#{s2.y}"
         end
       end
       
       if s1.interpolate=="step-before"
-        return "V#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s2.y.to_s ) ? s2.y: s2.y.to_int}H#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s2.x.to_s ) ? s2.x : s2.x.to_int}" # IO ho modificato per togliere i decimali inutili e aggiungere l'unit�
+        return "V#{s2.y}H#{s2.x}"
       elsif s1.interpolate=="step-after"
-        return "H#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s2.x.to_s ) ? s2.x : s2.x.to_int}V#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s2.y.to_s ) ? s2.y : s2.y.to_int}" # IO ho modificato per togliere i decimali inutili e aggiungere l'unit�
+        return "H#{s2.x}V#{s2.y}"
       end
       
-      return "L#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s2.x.to_s ) ? s2.x : s2.x.to_int},#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s2.y.to_s ) ? s2.y : s2.y.to_int }" # IO ho modificato per togliere i decimali inutili e aggiungere l'unit�
+      return "L#{s2.x},#{s2.y}"
     end
 
     #/** @private Line-line intersection, per Akenine-Moller 16.16.1. */

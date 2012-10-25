@@ -20,10 +20,19 @@ module Rubyvis
           (ii..k).each {|i|
             si = scenes[i]
             sj = scenes[j]
-            pi = "#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ si.x.to_s ) ? si.x : si.x.to_int},#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ si.y1.to_s ) ? si.y1 : si.y1.to_int}"
+            #if horizon's layout
+            if i == 20
+              rfv = 4
+            end
+            if si.y
+              pi = "#{si.x},#{si.y1+si.y}"
+            else
+              pi = "#{si.x},#{si.y1}"
+            end
+
         #pi = "#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ si.left.to_s ) ? si.left : si.left.to_int},#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ si.top.to_s ) ? si.top: si.top.to_int}" # IO per eliminare i decimali uguali a zero e ho aggiunto il +1 perch� d3 lo fa in automatico
         #pi = "#{si.left},#{si.top}" # IO vedi sopra
-            pj = "#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (sj.x + sj.width).to_s ) ? (sj.x + sj.width) : (sj.x + sj.width).to_int },#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (sj.y0 + sj.height).to_s ) ? (sj.y0 + sj.height) : (sj.y0 + sj.height).to_int }" # IO per eliminare i decimali uguali a zero
+            pj = "#{sj.x + sj.width},#{sj.y0 + sj.height}" # IO per eliminare i decimali uguali a zero
         #pj = "#{(sj.left + sj.width)},#{(sj.top + sj.height)}" # IO vedi sopra
             puts "#{i}:"+pi+","+pj if $DEBUG
             #/* interpolate */
@@ -34,12 +43,12 @@ module Rubyvis
               case (s.interpolate)
                 when "step-before"
                   #pi = pi+"V#{sk.top}"
-                  pi = pi+"V#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ sk.y1.to_s ) ? sk.y1 : sk.y1.to_int}"
-                  pj = pj+"H#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (sl.x + sl.width).to_s ) ? (sl.x + sl.width) : (sl.x + sl.width).to_int }"
+                  pi = pi+"V#{sk.y1}"
+                  pj = pj+"H#{sl.x + sl.width}"
 
                 when "step-after"
-                  pi = pi+"H#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ sk.x.to_s ) ? sk.x : sk.x.to_int}"
-                  pj = pj+"V#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (sl.y0 + sl.height).to_s ) ? (sl.y0 + sl.height) : (sl.y0 + sl.height).to_int}"
+                  pi = pi+"H#{sk.x}"
+                  pj = pj+"V#{sl.y0 + sl.height}"
               end
             end
             p1.push(pi)
@@ -62,7 +71,7 @@ module Rubyvis
           (ii..k).each {|i|
             sj = scenes[j];
             pointsT.push(scenes[i])
-            pointsB.push(OpenStruct.new({:x=> (/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (sj.x + sj.width).to_s ) ? (sj.x + sj.width) : (sj.x + sj.width).to_int , :y1=> (/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (sj.y0).to_s ) ? (sj.y0) : (sj.y0).to_int}))
+            pointsB.push(OpenStruct.new({:x=> (sj.x + sj.width) , :y1=> (sj.y0)}))
             j=j-1
           }
 
@@ -123,7 +132,7 @@ module Rubyvis
           "pointer-events"=> s.events,
           "cursor"=> s.cursor,
           "d"=> "M" + d.join("ZM") + "Z",
-          "fill"=> s.fill, # IO ho aggiunto la condizione per visualizzare solo colori inseriti dall'utente come fa d3
+          "fill"=> s.fill,
           "fill-opacity"=> s.fill_opacity,
           "stroke"=> s.stroke,
           "stroke-opacity"=> s.stroke_opacity,
@@ -152,14 +161,14 @@ module Rubyvis
           p3=r1 * Math.cos(a2)
 
           if i<n-1
-            _p = _p + "#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ p0.to_s ) ? p0 : p0.to_int},#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ p1.to_s ) ? p1 : p1.to_int}L"
+            _p = _p + "#{p0},#{p1}L"
           else
-            _p = _p + "#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ p0.to_s ) ? p0 : p0.to_int},#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ p1.to_s ) ? p1 : p1.to_int}"
+            _p = _p + "#{p0},#{p1}"
           end
           if i<n-1
-            _i = _i + "#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ p3.to_s ) ? p3 : p3.to_int},#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ p2.to_s ) ? p2 : p2.to_int}L"
+            _i = _i + "#{p3},#{p2}L"
           else
-            _i = _i + "#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ p3.to_s ) ? p3 : p3.to_int},#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ p2.to_s ) ? p2 : p2.to_int}Z"
+            _i = _i + "#{p3},#{p2}Z"
           end
 
         end
@@ -193,7 +202,7 @@ module Rubyvis
         n.times {|i|
           sj = scenes[n - i - 1]
           pointsT.push(scenes[i])
-          pointsB.push(OpenStruct.new({:x=> (/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (sj.x + sj.width).to_s ) ? (sj.x + sj.width) : (sj.x + sj.width).to_int , :y0=> (/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (sj.y0 + sj.height).to_s ) ? (sj.y0 + sj.height) : (sj.y0 + sj.height).to_int}));
+          pointsB.push(OpenStruct.new({:x=> (sj.x + sj.width), :y0=> (sj.y0 + sj.height)}));
         }
     
         if (s.interpolate == "basis") 
@@ -241,7 +250,7 @@ module Rubyvis
           
     
           #/* path */
-          d = "M#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s1.x.to_s ) ? s1.x : s1.x.to_int},#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ si.y1.to_s ) ? si.y1 : si.y1.to_int}L#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s2.x.to_s ) ? s2.x : s2.x.to_int},#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ sj.y0.to_s ) ? sj.y0 : sj.y0.to_int}L#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (s2.x + s2.width).to_s ) ? (s2.x + s2.width) : (s2.x + s2.width).to_int},#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (sj.y0 + sj.height).to_s ) ? (sj.y0 + sj.height) : (sj.y0 + sj.height).to_int}L#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (s1.x + s1.width).to_s ) ? (s1.x + s1.width) : (s1.x + s1.width).to_int},#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ (si.y1 + si.height).to_s ) ? (si.y1 + si.height) : (si.y1 + si.height).to_int}Z"
+          d = "M#{s1.x},#{si.y1}L#{s2.x},#{sj.y0}L#{s2.x + s2.width},#{sj.y0 + sj.height}L#{s1.x + s1.width},#{si.y1 + si.height}Z"
         end
     
         e = self.expect(e, "path", {

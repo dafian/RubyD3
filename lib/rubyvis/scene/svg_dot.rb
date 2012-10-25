@@ -48,15 +48,15 @@ module Rubyvis
         }
 
         if (path)
-            svg["transform"] = "translate(#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s.x.to_s ) ? s.x : s.x.to_int},#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s.y0.to_s ) ? s.y0 : s.y0.to_int})"
+            svg["transform"] = "translate(#{s.x},#{s.y0})"
             if (s.shape_angle)
               svg["transform"] += " rotate(#{180 * s.shape_angle / Math.PI})";
             end
           svg["d"] = path
           e = self.expect(e, "path", svg);
         else
-          svg["cx"] = (/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s.cx.to_s ) ? s.cx : s.cx.to_int;
-          svg["cy"] = (/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ s.cy.to_s ) ? s.cy : s.cy.to_int;
+          svg["cx"] = s.cx ;
+          svg["cy"] = s.cy ;
           svg["r"] = radius;
           e = self.expect(e, "circle", svg);
         end
