@@ -202,7 +202,7 @@ module Rubyvis
     
     
     
-    attr_accessor_dsl :width, :height, :line_width, [:stroke_style, lambda {|d| Rubyvis.color(d)}], [:fill_style, lambda {|d| Rubyvis.color(d)}], :segmented, :interpolate, :tension, :classarea, :y0, :start_angle, :end_angle, :angle, :inner_radius, :outer_radius, :x, :y1, :shape_rendering, :fill, :fill_opacity, :stroke, :stroke_opacity, :stroke_width, :fill_rule, :y # IO ho aggiunto da classarea in poi
+    attr_accessor_dsl :width, :height, :line_width, [:stroke_style, lambda {|d| Rubyvis.color(d)}], [:fill_style, lambda {|d| Rubyvis.color(d)}], :segmented, :interpolate, :tension, :classarea, :y0, :start_angle, :end_angle, :angle, :inner_radius, :outer_radius, :x, :y1, :shape_rendering, :fill, :fill_opacity, :stroke, :stroke_opacity, :stroke_width, :fill_rule, :y, :yt, :yb # IO ho aggiunto da classarea in poi
     def type
       "area"
     end

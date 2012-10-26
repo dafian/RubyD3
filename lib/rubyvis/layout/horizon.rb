@@ -68,19 +68,19 @@ module Rubyvis
           data(lambda {Rubyvis.range(that._bands.to_f * 2)}).
           overflow("hidden").
           height(lambda {that._size}).
-          y(lambda {|i| that._mode=='color' ? (i & 1) * that._size : 0 }).
+          yt(lambda {|i| that._mode=='color' ? (i & 1) * that._size : 0 }).
           fill(lambda {|i| i!=0 ? nil : that._fill})
       end
       
       def _band
         that=self
         m=Rubyvis::Mark.new().
-        top(lambda  {|d,i|
+        yt(lambda  {|d,i|
           (that._mode == "mirror" and (i & 1)!=0) ? (i + 1 >> 1) * that._size : nil
         }).
-        y(lambda {|d,i|
+        yb(lambda {|d,i|
             crit= (i & 1)!= 0 ? i & 1 : -1
-          (that._mode == "mirror") ? ((i & 1)!=0 ? (i + 1 >> 1) * that._size : - (i + 1 >> 1) * -that._size) : - (crit * (i + 1 >> 1) * that._size)
+          (that._mode == "mirror") ? ((i & 1)!=0 ? nil : - (i + 1 >> 1) * -that._size) : - (crit * (i + 1 >> 1) * that._size)
         }).
         fill(lambda {|d,i|
             ((i & 1)!=0 ? that._red : that._blue).scale((i >> 1) + 1)

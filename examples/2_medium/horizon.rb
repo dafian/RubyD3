@@ -21,6 +21,7 @@ vis = pv.Panel.new() do |pan|
   pan.height(h*2+45)
   pan.font_size("10px")
   pan.font_family("sans-serif")
+  pan.stroke_width(1.5)
 
   types=["offset","mirror"]
 
@@ -62,11 +63,15 @@ vis = pv.Panel.new() do |pan|
            .add(Rubyvis::Area)
            .data(data)
            .x(lambda {|d| x[d.x]})
-           .y1(lambda {|d| h - 20 - y[d.y]})
-           .y0(lambda {|d| y[d.y]})
+           .y1(lambda {|d| y[d.y]})
+           .y0(h - 20)
 
-      gro.label do
-
+      gro.label do  |lbl|
+        lbl.y 3
+        lbl.dy ".71em"
+        lbl.transform "translate(200,-15)"
+        lbl.fill "rgb(0,0,0)"
+        lbl.text_anchor "middle"
       end
     end
   end

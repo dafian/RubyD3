@@ -20,19 +20,26 @@ module Rubyvis
           (ii..k).each {|i|
             si = scenes[i]
             sj = scenes[j]
+
             #if horizon's layout
-            if i == 20
-              rfv = 4
-            end
-            if si.y
-              pi = "#{si.x},#{si.y1+si.y}"
+
+            if si.yt || si.yb
+              if si.yt.nil?
+                pi = "#{si.x},#{si.y0 - si.y1 + si.yb}" #si.y1+si.yt+si.yb
+                pj = "#{sj.x},#{sj.y0  + sj.yb}"
+              else
+                pi = "#{si.x},#{si.yt}" #si.y0 - si.y1
+                pj = "#{sj.x},#{sj.y1 + sj.yt}"
+              end
+
             else
               pi = "#{si.x},#{si.y1}"
+              pj = "#{sj.x + sj.width},#{sj.y0 + sj.height}"
             end
 
         #pi = "#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ si.left.to_s ) ? si.left : si.left.to_int},#{(/([0-9])+(\.)(([0-9]{2,30})|([1-9]))/ =~ si.top.to_s ) ? si.top: si.top.to_int}" # IO per eliminare i decimali uguali a zero e ho aggiunto il +1 perch� d3 lo fa in automatico
         #pi = "#{si.left},#{si.top}" # IO vedi sopra
-            pj = "#{sj.x + sj.width},#{sj.y0 + sj.height}" # IO per eliminare i decimali uguali a zero
+
         #pj = "#{(sj.left + sj.width)},#{(sj.top + sj.height)}" # IO vedi sopra
             puts "#{i}:"+pi+","+pj if $DEBUG
             #/* interpolate */
