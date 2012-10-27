@@ -60,4 +60,7 @@ treemap.node_label.add(Rubyvis::Label).
     
 
 vis.render()
-puts vis.to_svg
+
+f = File.new(File.dirname(__FILE__)+"/fixtures/census_treemap.svg", "w")
+f.puts vis.to_svg
+f.close
